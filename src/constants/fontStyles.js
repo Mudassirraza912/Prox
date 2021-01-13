@@ -23,6 +23,6 @@ ProximaRegularP1: {
 },
 ProximaRegularP2: {
     fontFamily: "ProximaNova-Regular",
-    fontSize: 16
+    fontSize: 14
 }
 })

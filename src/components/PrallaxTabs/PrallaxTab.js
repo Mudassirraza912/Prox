@@ -101,7 +101,7 @@ export class ParallaxDemo extends Component {
               </Animated.Text>
               </Title> */}
 
-              <TouchableOpacity onPress={() => Alert.alert("Alert")}  style={{ backgroundColor: "rgba(0,0,0,.36)", height: 30, width: 30, borderRadius: 100, alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 10, marginTop: Platform.OS == "ios"  ? 10 : 55 }}>
+              <TouchableOpacity onPress={() => this.props.navigation.goBack()}  style={{ backgroundColor: "rgba(0,0,0,.36)", height: 30, width: 30, borderRadius: 100, alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 10, marginTop: Platform.OS == "ios"  ? 10 : 55 }}>
                 <Ionicons name="chevron-back" size={25} color={"#fff"} />
               </TouchableOpacity>
             {/* </Body> */}
