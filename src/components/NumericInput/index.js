@@ -20,6 +20,7 @@ export const NumericInput = ({
     btnText = "Add to cart",
     btnStyle = {},
     btnTextStyle = {},
+    size = 100,
     step = 1
 }) => {
 
