@@ -12,6 +12,7 @@ import { FlatList } from 'react-native-gesture-handler'
 import { PopularResturantsCard } from '../../components/Cards/PopularResturantCards'
 import { HorizontalCards } from '../../components/Cards/HorizontalCards'
 import SearchHeader from '../../components/SearchHeader'
+import { NumericInput } from '../../components/NumericInput'
 
 const Home = ({ navigation, user }) => {
   const dispatch = useDispatch()
@@ -20,9 +21,7 @@ const Home = ({ navigation, user }) => {
     <View style={styles.mainContainer}>
       <SafeAreaView>
       <ScrollView>
-        <View>
-          <SearchHeader inputContainerStyle={{paddingVertical: 15}} placeholder=" Burger, Pizza, Salad etc..." />
-        </View>
+       <NumericInput />
         <View style={styles.blockContainer}>
           <Text style={fontStyles.ProximaSemiBold}>
             Popular Near You
