@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/Ionicons'
-
+import LandingScreen from '../screens/LandingScreen/landingScreen'
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
@@ -38,7 +38,8 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
-        <Stack.Screen name="Home" component={MyTabs} />
+        {/* <Stack.Screen name="Home" component={MyTabs} /> */}
+        <Stack.Screen name="LandingScreen" component={LandingScreen} />
         {/* add your another screen here using -> Stack.Screen */}
       </Stack.Navigator>
     </NavigationContainer>
