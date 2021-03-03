@@ -5,7 +5,7 @@ import Input from '../../components/Input'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
 
 
     return (
@@ -28,9 +28,9 @@ const SignIn = () => {
                         <Input label="Password" isPassword keyboardType="default" />
                     </View>
 
-                    <View style={styles.blockContainer}>
-                        <Button title="Forgot Password?" titleStyle={[fontStyles.ProximaRegularP2, { color: '#000' }]} backgroundColor="transparent" />
-                    </View>
+            <View style={styles.blockContainer}>
+                <Button onPress={() => navigation.navigate("ForgotPassword")} title="Forgot Password?" titleStyle={[fontStyles.ProximaRegularP2, {color:'#000'}]} backgroundColor="transparent" />
+            </View>
 
                     <View style={styles.blockContainer}>
                         <Button title="Sign in" titleStyle={fontStyles.ProximaSemiBold} />
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     mainContainer: {
         backgroundColor: '#fff',
         flex: 1,
-        top: Platform.OS == "android" ? 20 : 50
+        top: Platform.OS == "android" ? 0 : 50
     },
     blockContainer: {
         paddingVertical: 5,
