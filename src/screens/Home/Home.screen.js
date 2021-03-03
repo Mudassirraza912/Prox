@@ -10,6 +10,8 @@ import styles from './Home.style'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { connect, useDispatch } from 'react-redux'
 import { fetchDataUser } from '../../stores/actions/user.action'
+import Button from '../../components/Button'
+import { DISABLE_BUTTON_TEXT_COLOR } from '../../constants/colors'
 
 const Home = ({ navigation, user }) => {
   const dispatch = useDispatch()
@@ -28,6 +30,7 @@ const Home = ({ navigation, user }) => {
           <Text style={{ fontSize: 15 }}>
             {data.id}. {data.name}
           </Text>
+
         </View>
       )
     })
@@ -48,6 +51,13 @@ const Home = ({ navigation, user }) => {
             </TouchableOpacity>
             <ListUser />
           </View>
+          <Button
+            containerStyle={{ marginTop: 10 }}
+            // backgroundColor="#FFBE00"
+            // textColor={DISABLE_BUTTON_TEXT_COLOR}
+          // lightTheme
+          disabled
+          />
         </View>
       </SafeAreaView>
     </>
