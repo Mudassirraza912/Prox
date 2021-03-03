@@ -17,6 +17,8 @@ const Input = ({
     keyboardType = 'default' | 'email-address' | 'numeric' | 'phone-pad' | 'number-pad' | 'decimal-pad'
 }) => {
 
+    // console.log("keyboardType", keyboardType)
+
     const [isShow, setIsShow] = useState(true)
     const phoneIpnput = () => {
         return( 
