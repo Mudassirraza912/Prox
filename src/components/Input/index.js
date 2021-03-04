@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import IntlPhoneInput from 'react-native-intl-phone-input';
 import { fontStyles } from "../../constants/fontStyles";
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const eye = require('../../assets/images/eye.png')
 
@@ -43,8 +44,9 @@ const Input = ({
                    {isPassword && 
                    <TouchableOpacity 
                    onPress={() => setIsShow(!isShow)}
-                   style={{width: "10%", paddingHorizontal: 10}} activeOpacity={.6} >
-                        <Image source={eye} />
+                   style={{width: "20%", paddingHorizontal: 10}} activeOpacity={.6} >
+                        {/* <Image source={eye} /> */}
+                        <Ionicons name={isPassword && isShow ? "eye-off-outline" : "eye-outline"} size={25} />
                     </TouchableOpacity>}
                 </View>
             </View>

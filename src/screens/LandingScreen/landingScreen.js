@@ -1,13 +1,22 @@
 import React from 'react'
+import { useState } from 'react'
 import {View, Text, Image, ImageBackground, StyleSheet} from 'react-native'
 import Button from '../../components/Button'
+import CustomModal from '../../components/Modal'
 import { fontStyles } from '../../constants/fontStyles'
 
 const Splash = require('../../assets/images/Splash.png')
 const LandingScreen = ({navigation}) => {
+
+    const [modal, setmodal] = useState(false)
     
     return(
         <View>
+
+            <CustomModal 
+              modalVisibel={modal}
+              setModalVisible={(a) => setmodal(a)}
+            />
             <ImageBackground source={Splash} style={styles.backgroundImage}>
                 <View style={styles.mainContainer}>
                     <Text style={[fontStyles.ProximaBoldH1, {color: "#fff"}]}>
@@ -16,7 +25,7 @@ const LandingScreen = ({navigation}) => {
 
                     <View style={styles.bottomItems}>
                         <Button
-                            onPress={() => {}}
+                            onPress={() => {setmodal(true)}}
                             title={"Create Account"}
                             titleStyle={[fontStyles.ProximaSemiBold, {color: "#000"}]}
                             backgroundColor={"#F6BD3E"}
