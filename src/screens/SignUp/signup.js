@@ -5,25 +5,27 @@ import Input from '../../components/Input'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
 
-const SignIn = ({navigation}) => {
+const SignUp = ({navigation}) => {
 
 
     return (
         <View style={styles.mainContainer}>
             <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
                 <View style={{ flex: 1 }}>
-        
                     <View style={[styles.blockContainer, {marginTop: Platform.OS == "android" ? 0 : 50}]}>
                         <View style={styles.itemContainer}>
-                            <Text style={fontStyles.ProximaBoldH1}>Welcome back </Text>
+                            <Text style={fontStyles.ProximaBoldH1}>Create an account</Text>
                         </View>
                         <View style={styles.itemContainer}>
-                            <Text style={[fontStyles.ProximaRegularP2, { color: "#6A7C92" }]}>Sign in to your account</Text>
+                            <Text style={[fontStyles.ProximaRegularP2, { color: "#6A7C92" }]}>Please enter details below below</Text>
                         </View>
                     </View>
 
                     <View style={styles.blockContainer}>
-                        <Input label="Mobile Number" type="phoneInput" keyboardType="default" />
+                        <Input label="Full Name" keyboardType="default" />
+                    </View>
+                    <View style={styles.blockContainer}>
+                        <Input label="Mobile Number" keyboardType="default" type="phoneInput" />
                     </View>
                     <View style={styles.blockContainer}>
                         <Input label="Password" isPassword keyboardType="default" />
@@ -34,17 +36,13 @@ const SignIn = ({navigation}) => {
             </View>
 
                     <View style={styles.blockContainer}>
-                        <Button 
-                            onPress={() => navigation.navigate("EnableLocation")}
-                            title="Sign in" 
-                            titleStyle={fontStyles.ProximaSemiBold} 
-                            />
+                        <Button title="Sign in" titleStyle={fontStyles.ProximaSemiBold} />
                     </View>
 
                     <View style={styles.signUpText}>
-                        <Text style={fontStyles.ProximaRegularP1}>Don't have an account?</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-                            <Text style={[fontStyles.ProximaRegularP1, { color: DEFAULT_THEME_COLOR }]}> Sign up</Text>
+                        <Text style={fontStyles.ProximaRegularP1}>Have an account?</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+                            <Text style={[fontStyles.ProximaRegularP1, { color: DEFAULT_THEME_COLOR}]}> Sign in</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -94,4 +92,4 @@ const styles = StyleSheet.create({
     }
 
 })
-export default SignIn;
+export default SignUp;

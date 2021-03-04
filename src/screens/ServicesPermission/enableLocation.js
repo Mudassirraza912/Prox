@@ -1,0 +1,97 @@
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, Platform, ScrollView, TouchableOpacity, Image } from 'react-native'
+import Button from '../../components/Button'
+import Input from '../../components/Input'
+import CustomModal from '../../components/Modal'
+import { DEFAULT_THEME_COLOR } from '../../constants/colors'
+import { fontStyles } from '../../constants/fontStyles'
+
+const store = require('../../assets/images/store.png')
+
+
+const EnableLocation = ({navigation}) => {
+
+    const [show, setIshow] = useState(false)
+
+    return (
+        <View style={styles.mainContainer}>
+            <CustomModal 
+                modalVisibel={show}
+                title="Stay updated"
+                successIcon={false}
+                discription="Allow location services so Prox can serve you up the best experience possible"
+                buttons={[
+                    {
+                        title:"Enable",
+                        titleStyle:{...fontStyles.ProximaSemiBold},
+                        onPress: () => setIshow(!show)
+                    },
+                    {
+                        title:"Not now",
+                        titleStyle:{...fontStyles.ProximaSemiBold, color: "#000"},
+                        onPress: () => setIshow(!show),
+                        backgroundColor:"transparent"
+                    },
+                ]}
+            />
+            <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
+                <View style={{ flex: 1 }}>
+                    <View style={[styles.blockContainer, {marginTop: Platform.OS == "android" ? 0 : 50, top: 20}]}>
+                        <View style={styles.itemContainer}>
+                            <Text style={fontStyles.ProximaBoldH1}>Enable Your Location</Text>
+                        </View>
+                        <View style={styles.itemContainer}>
+                            <Text style={[fontStyles.ProximaRegularP2, { color: "#6A7C92" }]}>Please allow to use your location to show nearby restaurants on the mapt</Text>
+                        </View>
+                    </View>
+
+                    <View style={[styles.blockContainer, {marginVertical: 130, alignSelf:'center'}]}>
+                        <Image source={store} />
+                    </View>
+
+                    <View style={styles.blockContainer}>
+                        <Button 
+                            onPress={() => setIshow(!show)}
+                            title="Allow Location Access" 
+                            titleStyle={fontStyles.ProximaSemiBold} 
+                        />
+                    </View>
+                    <View style={styles.blockContainer}>
+                        <Button
+                            onPress={() => {}}
+                            title={"Enter Source Address"}
+                            lightTheme
+                            titleStyle={[fontStyles.ProximaSemiBold]}
+                        />
+                    </View>
+                </View>
+            </ScrollView>
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    mainContainer: {
+        backgroundColor: '#fff',
+        flex: 1,
+    },
+    blockContainer: {
+        paddingVertical: 5,
+        paddingHorizontal: 15
+    },
+    itemContainer: {
+        paddingVertical: 5,
+    },
+    signUpText: {
+        flexDirection: 'row',
+        alignSelf: 'center',
+        paddingVertical: 25
+    },
+    bottomItems: {
+        position: 'absolute',
+        bottom: 100,
+        width: '100%'
+    }
+
+})
+export default EnableLocation;
