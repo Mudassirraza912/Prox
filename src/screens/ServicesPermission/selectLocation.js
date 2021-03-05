@@ -15,7 +15,7 @@ const Selectlocation = ({ navigation }) => {
         <View>
             <Header
                 centerText={"Select Location"}
-
+                leftButtonPress={() => navigation.goBack()}
             />
             <SafeAreaView >
 
