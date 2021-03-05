@@ -16,6 +16,7 @@ import BottomTabs from './bottomNavigation'
 import { stopClock } from 'react-native-reanimated'
 import Selectlocation from '../screens/ServicesPermission/selectLocation'
 import SearchScreen from '../screens/Search/Search.screen'
+import GooglePlacesInput from '../components/Map/LocationSearch'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -58,6 +59,7 @@ const MainNavigation = () => {
         <Stack.Screen name="EnableLocation" component={EnableLocation} />
         <Stack.Screen name="Home" component={BottomTabs} />
         <Stack.Screen name="Selectlocation" component={Selectlocation}  />
+        <Stack.Screen name="SearchGooglePlaces" component={GooglePlacesInput}  />
         <Stack.Screen name="Search" component={SearchScreen}  />
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}
