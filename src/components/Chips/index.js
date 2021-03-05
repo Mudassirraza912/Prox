@@ -14,6 +14,8 @@ const Chips = ({
             <FlatList
                 data={data}
                 // horizontal
+                key={'h'}
+                numColumns={3}
                 contentContainerStyle={styles.chipsWrapper}
                 renderItem={({ item, index }) => {
                     return (
