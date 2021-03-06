@@ -1,9 +1,11 @@
 import React from 'react'
 import { View, Text, StyleSheet, Platform, ScrollView, TouchableOpacity } from 'react-native'
 import Button from '../../components/Button'
+import { HorizontalCards } from '../../components/Cards/HorizontalCards'
 import Input from '../../components/Input'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
+
 
 const SignIn = ({navigation}) => {
 
@@ -63,6 +65,9 @@ const SignIn = ({navigation}) => {
                             titleStyle={[fontStyles.ProximaSemiBold]}
                             type={"google"}
                         />
+                    </View>
+                    <View style={styles.blockContainer}>
+                        <HorizontalCards />
                     </View>
                 </View>
             </ScrollView>
