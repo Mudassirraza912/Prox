@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Platform } from 'react-native'
 import IntlPhoneInput from 'react-native-intl-phone-input';
 import { fontStyles } from "../../constants/fontStyles";
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -46,7 +46,7 @@ const Input = ({
                    onPress={() => setIsShow(!isShow)}
                    style={{width: "20%", paddingHorizontal: 10}} activeOpacity={.6} >
                         {/* <Image source={eye} /> */}
-                        <Ionicons name={isPassword && isShow ? "eye-off-outline" : "eye-outline"} size={25} />
+                        <Ionicons style={{top: Platform.OS == "ios" ? 0 : 10}} name={isPassword && isShow ? "eye-off-outline" : "eye-outline"} size={25} />
                     </TouchableOpacity>}
                 </View>
             </View>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     },
     defaulContainerStyle: {
         backgroundColor: "#F1F2FA",
-        padding: 20,
+        padding: Platform.OS == "ios" ? 20 : 5,
         alignSelf:'center',
         width: '100%',
         borderRadius: 10,

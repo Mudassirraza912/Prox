@@ -1,4 +1,4 @@
-package com.reactnativeboilerplate;
+package com.poppins;
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 
@@ -17,6 +17,6 @@ public class MainActivity extends ReactActivity {
   
   @Override
   protected String getMainComponentName() {
-    return "Prox";
+    return "POPPINS";
   }
 }
