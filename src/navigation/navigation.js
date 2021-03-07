@@ -13,6 +13,7 @@ import ChangePassword from '../screens/ForgotPassword/changePassword'
 import SignUp from '../screens/SignUp/signup'
 import EnableLocation from '../screens/ServicesPermission/enableLocation'
 import { stopClock } from 'react-native-reanimated'
+import BottomTabs from './bottomNavigation'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -46,6 +47,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
+        <Stack.Screen name="Footer" component={BottomTabs} />
         <Stack.Screen name="LandingScreen" component={LandingScreen} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
