@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Platform, ScrollView, TouchableOpacity } from 'react-native'
 import Button from '../../components/Button'
 import { HorizontalCards } from '../../components/Cards/HorizontalCards'
+import { PopularResturantsCard } from '../../components/Cards/PopularResturantCards'
 import Input from '../../components/Input'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
@@ -67,7 +68,7 @@ const SignIn = ({navigation}) => {
                         />
                     </View>
                     <View style={styles.blockContainer}>
-                        <HorizontalCards />
+                        <PopularResturantsCard />
                     </View>
                 </View>
             </ScrollView>
