@@ -58,7 +58,7 @@ const CustomModal = ({
             onBackdropPress={() => setModalVisible(false)}>
             <View style={[{ backgroundColor: "#fff", borderRadius: 20, paddingVertical: 20, alignItems: "center" }, containerStyle]}>
 
-                <View style={styles.successContainer} />
+               {successIcon && <View style={styles.successContainer} />}
 
                 <Text style={[styles.titleStyle, { ...fontStyles.ProximaBoldH2, width: "95%", textAlign: "center" }, titleStyle]}>{title}</Text>
 

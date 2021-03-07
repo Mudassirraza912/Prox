@@ -10,7 +10,7 @@ const ForgotPassword = ({navigation}) => {
 
     return(
         <View style={styles.mainContainer}>
-            <View style={styles.blockContainer}>
+            <View style={[styles.blockContainer, {marginTop: Platform.OS == "android" ? 0 : 50}]}>
                 <View style={styles.itemContainer}>
                     <Text style={fontStyles.ProximaBoldH1}>Forgot Password</Text>
                 </View>
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
     mainContainer : {
         backgroundColor: '#fff',
         flex: 1,
-        marginTop: Platform.OS == "android" ? 0 : 50
     },
     blockContainer: {
         paddingVertical: 5,
