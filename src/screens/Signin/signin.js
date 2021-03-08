@@ -67,9 +67,6 @@ const SignIn = ({navigation}) => {
                             type={"google"}
                         />
                     </View>
-                    <View style={styles.blockContainer}>
-                        <PopularResturantsCard />
-                    </View>
                 </View>
             </ScrollView>
         </View>

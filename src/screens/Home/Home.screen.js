@@ -4,66 +4,78 @@ import {
   View,
   Text,
   StatusBar,
-  TouchableOpacity
+  TouchableOpacity, StyleSheet, ScrollView
 } from 'react-native'
-import styles from './Home.style'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { connect, useDispatch } from 'react-redux'
 import { fetchDataUser } from '../../stores/actions/user.action'
 import Button from '../../components/Button'
 import { DISABLE_BUTTON_TEXT_COLOR } from '../../constants/colors'
-
+import BottomTabs from '../../navigation/bottomNavigation'
+import { fontStyles } from '../../constants/fontStyles'
+import { FlatList } from 'react-native-gesture-handler'
+import { PopularResturantsCard } from '../../components/Cards/PopularResturantCards'
+import { HorizontalCards } from '../../components/Cards/HorizontalCards'
 const Home = ({ navigation, user }) => {
   const dispatch = useDispatch()
 
-  function ListUser() {
-    return user.map(data => {
-      return (
-        <View
-          key={data.id}
-          style={{
-            borderBottomWidth: 1,
-            borderColor: '#eee',
-            padding: 1,
-            marginTop: 10
-          }}>
-          <Text style={{ fontSize: 15 }}>
-            {data.id}. {data.name}
-          </Text>
-
-        </View>
-      )
-    })
-  }
-
   return (
-    <>
-      <StatusBar barStyle="dark-content" backgroundColor={'#f9f9f9'} />
-      <SafeAreaView style={styles.SafeAreaView1} />
-      <SafeAreaView style={styles.SafeAreaView2}>
-        <View style={styles.outerWrapper}>
-          <Icon name={'ios-home'} size={100} color={'purple'} />
-          <View>
-            <TouchableOpacity
-              style={styles.buttonStyle}
-              onPress={() => dispatch(fetchDataUser())}>
-              <Text style={styles.text}>Click here to show User data:</Text>
-            </TouchableOpacity>
-            <ListUser />
-          </View>
-          <Button
-            containerStyle={{ marginTop: 10 }}
-            // backgroundColor="#FFBE00"
-            // textColor={DISABLE_BUTTON_TEXT_COLOR}
-          // lightTheme
-          disabled
-          />
+    <View style={styles.mainContainer}>
+      <SafeAreaView>
+      <ScrollView>
+        <View style={styles.blockContainer}>
+          <Text style={fontStyles.ProximaSemiBold}>
+            Popular Near You
+          </Text>
         </View>
+        <View style={[styles.blockContainer, {}]}>
+          <FlatList
+              horizontal={true}
+              data={[1,2,3,4,5]}
+              renderItem={({item, index}) => {
+                return <View style={{marginHorizontal: 10}}>
+                            <PopularResturantsCard />
+                        </View>
+              }}
+              showsHorizontalScrollIndicator={false}
+            />
+        </View>
+
+        <View style={styles.blockContainer}>
+          <Text style={fontStyles.ProximaSemiBold}>
+            More Resturants
+          </Text>
+        </View>
+        <View style={[styles.blockContainer, {}]}>
+          <FlatList
+              data={[1,2,3,4,5]}
+              renderItem={({item, index}) => {
+                return <View style={{margin: 10}}>
+                            <HorizontalCards />
+                        </View>
+              }}
+              showsHorizontalScrollIndicator={false}
+            />
+        </View>
+      </ScrollView>
       </SafeAreaView>
-    </>
+    </View>
   )
 }
 
+const styles =  StyleSheet.create({
+  mainContainer: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
+  blockContainer: {
+    paddingVertical: 5,
+    paddingHorizontal: 15
+  },
+  itemContainer: {
+      paddingVertical: 5,
+  },
+})
 const mapStateToProps = state => {
   return {
     user: state.userReducer.users

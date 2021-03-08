@@ -47,7 +47,6 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
-        <Stack.Screen name="Footer" component={BottomTabs} />
         <Stack.Screen name="LandingScreen" component={LandingScreen} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
@@ -55,6 +54,7 @@ const MainNavigation = () => {
         <Stack.Screen name="ChangePassword" component={ChangePassword} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="EnableLocation" component={EnableLocation} />
+        <Stack.Screen name="Home" component={BottomTabs} />
         
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}

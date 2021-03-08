@@ -24,7 +24,10 @@ const EnableLocation = ({navigation}) => {
                     {
                         title:"Enable",
                         titleStyle:{...fontStyles.ProximaSemiBold},
-                        onPress: () => setIshow(!show)
+                        onPress: () => {
+                            navigation.navigate('Home')
+                            setIshow(!show)
+                        }
                     },
                     {
                         title:"Not now",
