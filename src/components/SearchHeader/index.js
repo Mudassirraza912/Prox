@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const SearchHeader = ({
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         backgroundColor: "#F1F2FA",
         width: "80%",
-        // paddingVertical: 10,
+        paddingVertical: Platform.OS == "android" ? 0 : 10,
         borderRadius: 100,
         flexDirection: "row",
         alignItems: "center"
