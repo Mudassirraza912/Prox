@@ -12,8 +12,9 @@ import VerificationOTP from '../screens/ForgotPassword/Verification'
 import ChangePassword from '../screens/ForgotPassword/changePassword'
 import SignUp from '../screens/SignUp/signup'
 import EnableLocation from '../screens/ServicesPermission/enableLocation'
-import { stopClock } from 'react-native-reanimated'
 import BottomTabs from './bottomNavigation'
+import { stopClock } from 'react-native-reanimated'
+import Selectlocation from '../screens/ServicesPermission/selectLocation'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -55,7 +56,7 @@ const MainNavigation = () => {
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="EnableLocation" component={EnableLocation} />
         <Stack.Screen name="Home" component={BottomTabs} />
-        
+        <Stack.Screen name="Selectlocation" component={Selectlocation}  />
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}
       </Stack.Navigator>

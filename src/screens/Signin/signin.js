@@ -26,7 +26,7 @@ const SignIn = ({navigation}) => {
                     </View>
 
                     <View style={styles.blockContainer}>
-                        <Input label="Mobile Number" type="phoneInput" keyboardType="default" />
+                         <Input label="Enter Email" keyboardType="default"/>
                     </View>
                     <View style={styles.blockContainer}>
                         <Input label="Password" isPassword keyboardType="default" />

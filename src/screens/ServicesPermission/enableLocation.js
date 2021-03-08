@@ -61,7 +61,7 @@ const EnableLocation = ({navigation}) => {
                     </View>
                     <View style={styles.blockContainer}>
                         <Button
-                            onPress={() => {}}
+                            onPress={() => {navigation.navigate('Selectlocation')}}
                             title={"Enter Source Address"}
                             lightTheme
                             titleStyle={[fontStyles.ProximaSemiBold]}

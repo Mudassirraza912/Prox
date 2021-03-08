@@ -40,7 +40,7 @@ const Home = ({ navigation, user }) => {
               showsHorizontalScrollIndicator={false}
             />
         </View>
-
+        <View style={{backgroundColor:'#F1F2FA', width: '100%', height: 5, marginVertical: 5, bottom: 5}} />
         <View style={styles.blockContainer}>
           <Text style={fontStyles.ProximaSemiBold}>
             More Resturants
