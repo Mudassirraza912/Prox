@@ -43,7 +43,6 @@ export const PopularResturantsCard = ({
 
 export const styles = StyleSheet.create({
     defaultConatinerStyle : {
-        width: '100%',
     },
     defaultImageStyle: {
         borderRadius: 10,

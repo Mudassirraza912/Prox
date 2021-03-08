@@ -24,7 +24,10 @@ const EnableLocation = ({navigation}) => {
                     {
                         title:"Enable",
                         titleStyle:{...fontStyles.ProximaSemiBold},
-                        onPress: () => setIshow(!show)
+                        onPress: () => {
+                            navigation.navigate('Home')
+                            setIshow(!show)
+                        }
                     },
                     {
                         title:"Not now",
@@ -58,7 +61,7 @@ const EnableLocation = ({navigation}) => {
                     </View>
                     <View style={styles.blockContainer}>
                         <Button
-                            onPress={() => {}}
+                            onPress={() => {navigation.navigate('Selectlocation')}}
                             title={"Enter Source Address"}
                             lightTheme
                             titleStyle={[fontStyles.ProximaSemiBold]}

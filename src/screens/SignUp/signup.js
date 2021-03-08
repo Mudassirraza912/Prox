@@ -25,7 +25,7 @@ const SignUp = ({navigation}) => {
                         <Input label="Full Name" keyboardType="default" />
                     </View>
                     <View style={styles.blockContainer}>
-                        <Input label="Mobile Number" keyboardType="default" type="phoneInput" />
+                        <Input label="Enter Email" keyboardType="default"/>
                     </View>
                     <View style={styles.blockContainer}>
                         <Input label="Password" isPassword keyboardType="default" />

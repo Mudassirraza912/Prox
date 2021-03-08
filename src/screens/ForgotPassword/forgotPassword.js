@@ -23,7 +23,7 @@ const ForgotPassword = ({navigation}) => {
             </View>
 
             <View style={[styles.blockContainer, {marginTop: 30}]}>
-                <Input label="Mobile Number" type="phoneInput"/>
+                <Input label="Enter Email"/>
             </View>
 
             <View style={[styles.blockContainer, { marginTop: 30}]}>
