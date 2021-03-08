@@ -12,6 +12,7 @@ import { connect, useDispatch } from 'react-redux'
 import { fetchDataUser } from '../../stores/actions/user.action'
 import Button from '../../components/Button'
 import { DISABLE_BUTTON_TEXT_COLOR } from '../../constants/colors'
+import SearchHeader from '../../components/SearchHeader'
 
 const Home = ({ navigation, user }) => {
   const dispatch = useDispatch()
@@ -41,6 +42,7 @@ const Home = ({ navigation, user }) => {
       <StatusBar barStyle="dark-content" backgroundColor={'#f9f9f9'} />
       <SafeAreaView style={styles.SafeAreaView1} />
       <SafeAreaView style={styles.SafeAreaView2}>
+        <SearchHeader editable={false} Component={TouchableOpacity} placeholder="Burger, Pizza, Salad etc" />
         <View style={styles.outerWrapper}>
           <Icon name={'ios-home'} size={100} color={'purple'} />
           <View>
