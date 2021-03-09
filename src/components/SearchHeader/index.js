@@ -1,20 +1,27 @@
 import React from 'react'
 import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { fontStyles } from '../../constants/fontStyles'
 
 const SearchHeader = ({
     Component = View,
     backButton = false,
     containerStyle = {},
     backContainerStyle = {},
+    inputContainerStyle = {},
     onBackButtonPress = () => { },
     onSearchContainerPress = () => { },
+    onRightIconPress = () => {},
     inputRightIcon = true,
     inputRightIconName = "options",
     inputLeftIcon = true,
     inputLeftIconName = "search",
     placeholder = "",
-    editable = true
+    editable = true,
+    inputStyle = {},
+    onChangeText = () => {},
+    autoFocus=false,
+    searchValue=""
 }) => {
     return (
         <View
@@ -34,7 +41,7 @@ const SearchHeader = ({
             <Component
                 activeOpacity={0.6}
                 onPress={onSearchContainerPress}
-                style={[styles.inputContainer, backButton ? {} : { alignSelf: "center", width: "90%" }]}>
+                style={[styles.inputContainer, backButton ? {} : { alignSelf: "center", width: "90%" }, inputContainerStyle]}>
                 {inputLeftIcon && <Ionicons
                     size={20}
                     name={inputLeftIconName}
@@ -43,8 +50,13 @@ const SearchHeader = ({
                 <TextInput
                     placeholder={placeholder}
                     editable={editable}
-                    style={{ marginStart: 5, width: "70%" }} />
-                {inputRightIcon && <Ionicons
+                    style={[{ marginStart: 5, width: "70%" }, fontStyles.ProximaRegularP2, inputStyle]}
+                    onChangeText={onChangeText}
+                    value={searchValue}
+                    autoFocus={autoFocus} />
+                {inputRightIcon && 
+                    <Ionicons
+                    onPress={onRightIconPress}
                     size={20}
                     name={inputRightIconName}
                     color={"#6A7C92"}

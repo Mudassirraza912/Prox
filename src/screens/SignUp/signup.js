@@ -36,7 +36,7 @@ const SignUp = ({navigation}) => {
             </View>
 
                     <View style={styles.blockContainer}>
-                        <Button title="Sign in" titleStyle={fontStyles.ProximaSemiBold} />
+                        <Button title="Sign up" titleStyle={fontStyles.ProximaSemiBold} />
                     </View>
 
                     <View style={styles.signUpText}>

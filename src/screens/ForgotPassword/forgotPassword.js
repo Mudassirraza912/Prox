@@ -17,7 +17,7 @@ const ForgotPassword = ({navigation}) => {
                 <View style={[styles.itemContainer]}>
                     <Text style={[fontStyles.ProximaRegularP2, {color: "#6A7C92"}]}>
                     To reset your password, enter the mobile 
-                    number use to sign in  to Prox
+                    number use to sign in  to POPPINS
                     </Text>
                 </View>
             </View>

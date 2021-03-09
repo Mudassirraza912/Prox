@@ -11,11 +11,11 @@ export const fontStyles = StyleSheet.create({
 },
 ProximaSemiBold: {
     fontFamily: "ProximaNova-Semibold",
-    fontSize: 22
+    fontSize: 20
 },
 ProximaSemiBoldSmall: {
     fontFamily: "ProximaNova-Semibold",
-    fontSize: 18
+    fontSize: 16
 },
 ProximaRegularP1: {
     fontFamily: "ProximaNova-Regular",

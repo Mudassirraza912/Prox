@@ -14,7 +14,7 @@ const ChangePassword = ({navigation}) => {
                 modalVisibel={modal}
                 setModalVisible={(a) => setmodal(a)}
                 title={"Password changed"}
-                discription="You may now continue using Prox with your new password"
+                discription="You may now continue using POPPINS with your new password"
                 buttons={[
                     {
                         title: "Close",
