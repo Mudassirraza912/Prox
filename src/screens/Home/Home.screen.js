@@ -4,18 +4,15 @@ import {
   View,
   Text,
   StatusBar,
-  TouchableOpacity, StyleSheet, ScrollView
+  TouchableOpacity, StyleSheet, ScrollView, Alert
 } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
 import { connect, useDispatch } from 'react-redux'
-import { fetchDataUser } from '../../stores/actions/user.action'
-import Button from '../../components/Button'
-import { DISABLE_BUTTON_TEXT_COLOR } from '../../constants/colors'
-import BottomTabs from '../../navigation/bottomNavigation'
 import { fontStyles } from '../../constants/fontStyles'
 import { FlatList } from 'react-native-gesture-handler'
 import { PopularResturantsCard } from '../../components/Cards/PopularResturantCards'
 import { HorizontalCards } from '../../components/Cards/HorizontalCards'
+import SearchHeader from '../../components/SearchHeader'
+
 const Home = ({ navigation, user }) => {
   const dispatch = useDispatch()
 
@@ -23,6 +20,9 @@ const Home = ({ navigation, user }) => {
     <View style={styles.mainContainer}>
       <SafeAreaView>
       <ScrollView>
+        <View>
+          <SearchHeader inputContainerStyle={{paddingVertical: 15}} placeholder=" Burger, Pizza, Salad etc..." />
+        </View>
         <View style={styles.blockContainer}>
           <Text style={fontStyles.ProximaSemiBold}>
             Popular Near You

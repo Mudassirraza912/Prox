@@ -7,8 +7,10 @@ const SearchHeader = ({
     backButton = false,
     containerStyle = {},
     backContainerStyle = {},
+    inputContainerStyle = {},
     onBackButtonPress = () => { },
     onSearchContainerPress = () => { },
+    onRightIconPress = () => {},
     inputRightIcon = true,
     inputRightIconName = "options",
     inputLeftIcon = true,
@@ -34,7 +36,7 @@ const SearchHeader = ({
             <Component
                 activeOpacity={0.6}
                 onPress={onSearchContainerPress}
-                style={[styles.inputContainer, backButton ? {} : { alignSelf: "center", width: "90%" }]}>
+                style={[styles.inputContainer, backButton ? {} : { alignSelf: "center", width: "90%" }, inputContainerStyle]}>
                 {inputLeftIcon && <Ionicons
                     size={20}
                     name={inputLeftIconName}
@@ -44,7 +46,9 @@ const SearchHeader = ({
                     placeholder={placeholder}
                     editable={editable}
                     style={{ marginStart: 5, width: "70%" }} />
-                {inputRightIcon && <Ionicons
+                {inputRightIcon && 
+                    <Ionicons
+                    onPress={onRightIconPress}
                     size={20}
                     name={inputRightIconName}
                     color={"#6A7C92"}
