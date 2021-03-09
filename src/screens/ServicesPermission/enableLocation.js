@@ -19,7 +19,7 @@ const EnableLocation = ({navigation}) => {
                 modalVisibel={show}
                 title="Stay updated"
                 successIcon={false}
-                discription="Allow location services so Prox can serve you up the best experience possible"
+                discription="Allow location services so POPPINS can serve you up the best experience possible"
                 buttons={[
                     {
                         title:"Enable",

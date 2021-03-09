@@ -17,7 +17,7 @@ const LandingScreen = ({navigation}) => {
             <ImageBackground source={Splash} style={styles.backgroundImage}>
                 <View style={styles.mainContainer}>
                     <Text style={[fontStyles.ProximaBoldH1, {color: "#fff"}]}>
-                        Prox
+                        POPPINS
                     </Text>
 
                     <View style={styles.bottomItems}>

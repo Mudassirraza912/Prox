@@ -7,6 +7,17 @@ const Selectlocation = () => {
         <View>
             <SafeAreaView>
                 <Map />
+                {/* <View style={StyleSheet.absoluteFillObject}>
+                    <MapView style={StyleSheet.absoluteFillObject} />
+                    
+                    <View style={{ position: 'absolute', top: 50, left: 0, right: 0, height: 50, borderWidth: 1  }}>
+                    <Text>12312</Text>
+                    </View>
+
+                    <View style={{ position: 'absolute', bottom: 50, left: 0, right: 0, height: 50, borderWidth: 1 }}>
+                    <Text>12312</Text>
+                    </View>
+                </View> */}
             </SafeAreaView>
         </View>
     )
