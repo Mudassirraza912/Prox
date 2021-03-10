@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, createRef } from 'react'
 import {
   SafeAreaView,
   View,
@@ -14,22 +14,25 @@ import { HorizontalCards } from '../../components/Cards/HorizontalCards'
 import SearchHeader from '../../components/SearchHeader'
 import { NumericInput } from '../../components/NumericInput'
 import Chips from '../../components/Chips'
-import SearchFilter from '../../components/SearchFilter'
+import { SearchFilter } from '../../components/SearchFilter/index'
 
 const Home = ({ navigation, user }) => {
-  const dispatch = useDispatch()
+
+  const FilterRef = createRef()
+  const [showFilter, setShowFilter] = useState(false)
 
   return (
     <View style={styles.mainContainer}>
+      <SearchFilter ref={FilterRef} />
       <SafeAreaView> 
         <ScrollView>
-          {/* <SearchFilter /> */}
           <SearchHeader
             Component={TouchableOpacity}
             placeholder="Burger, Pizza, Salad etc"
             containerStyle={{ marginTop: Platform.OS == "android" ? 15 : 50 }}
             editable={false}
             onSearchContainerPress={() => navigation.navigate("Search")}
+            onRightIconPress={() => FilterRef.current?.setModalVisible()}
           />
           <View style={styles.blockContainer}>
             <Text style={fontStyles.ProximaSemiBold}>

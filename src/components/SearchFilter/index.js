@@ -1,33 +1,41 @@
-import React from 'react'
-import { Dimensions, StyleSheet, Text, View } from 'react-native'
-import Modal from 'react-native-modal'
+import React, { createRef, forwardRef } from "react";
+import { View, Text, TouchableOpacity, StyleSheet} from 'react-native'
+import ActionSheet from "react-native-actions-sheet";
+import { fontStyles } from "../../constants/fontStyles";
 
-const { width, height } = Dimensions.get("screen")
 
-const SearchFilter = () => {
-    return (
-        <View style={styles.container}>
+export const SearchFilter = forwardRef((props, ref) => {
 
-            <Modal
-                isVisible={true}
-                swipeDirection="down"
-                coverScreen
-                deviceWidth={width}
-                deviceHeight={height}
-            >
-                <View style={{ backgroundColor: "#fff", height: 500, width: width, position: "absolute", bottom: 0 }}>
-
+    return(
+        <ActionSheet ref={ref}>
+            <View style={[styles.container]}>
+                    <View style={[styles.blockContainer, styles.rowSpaceBtw]}>
+                        <Text style={fontStyles.ProximaSemiBold}>
+                            Filter Your Search
+                        </Text>
+                        <Text style={fontStyles.ProximaSemiBold}>
+                            Filter Your Search
+                        </Text>
+                    </View>
                 </View>
+        </ActionSheet>
 
-            </Modal>
-        </View>
     )
-}
-
-export default SearchFilter
+})
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        // flex: 1,
+    },
+    blockContainer: {
+        paddingVertical: 5,
+        paddingHorizontal: 15,
+    },
+    itemContainer: {
+        paddingVertical: 5,
+    },
+    rowSpaceBtw : {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     }
 })
