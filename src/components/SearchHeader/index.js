@@ -1,6 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { fontStyles } from '../../constants/fontStyles'
 
 const SearchHeader = ({
     Component = View,
@@ -16,7 +17,11 @@ const SearchHeader = ({
     inputLeftIcon = true,
     inputLeftIconName = "search",
     placeholder = "",
-    editable = true
+    editable = true,
+    inputStyle = {},
+    onChangeText = () => {},
+    autoFocus=false,
+    searchValue=""
 }) => {
     return (
         <View
@@ -45,7 +50,10 @@ const SearchHeader = ({
                 <TextInput
                     placeholder={placeholder}
                     editable={editable}
-                    style={{ marginStart: 5, width: "70%" }} />
+                    style={[{ marginStart: 5, width: "70%" }, fontStyles.ProximaRegularP2, inputStyle]}
+                    onChangeText={onChangeText}
+                    value={searchValue}
+                    autoFocus={autoFocus} />
                 {inputRightIcon && 
                     <Ionicons
                     onPress={onRightIconPress}
@@ -73,7 +81,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         backgroundColor: "#F1F2FA",
         width: "80%",
-        // paddingVertical: 10,
+        paddingVertical: Platform.OS == "android" ? 0 : 10,
         borderRadius: 100,
         flexDirection: "row",
         alignItems: "center"
