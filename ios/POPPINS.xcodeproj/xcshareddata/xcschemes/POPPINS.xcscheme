@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Prox.app"
-               BlueprintName = "Prox"
-               ReferencedContainer = "container:Prox.xcodeproj">
+               BuildableName = "POPPINS.app"
+               BlueprintName = "POPPINS"
+               ReferencedContainer = "container:POPPINS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ProxTests.xctest"
-               BlueprintName = "ProxTests"
-               ReferencedContainer = "container:Prox.xcodeproj">
+               BuildableName = "POPPINSTests.xctest"
+               BlueprintName = "POPPINSTests"
+               ReferencedContainer = "container:POPPINS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Prox.app"
-            BlueprintName = "Prox"
-            ReferencedContainer = "container:Prox.xcodeproj">
+            BuildableName = "POPPINS.app"
+            BlueprintName = "POPPINS"
+            ReferencedContainer = "container:POPPINS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Prox.app"
-            BlueprintName = "Prox"
-            ReferencedContainer = "container:Prox.xcodeproj">
+            BuildableName = "POPPINS.app"
+            BlueprintName = "POPPINS"
+            ReferencedContainer = "container:POPPINS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
