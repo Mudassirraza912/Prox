@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'Prox' do
+target 'POPPINS' do
   
   rn_maps_path = '../node_modules/react-native-maps'
     pod 'react-native-google-maps', :path => rn_maps_path
@@ -14,7 +14,7 @@ target 'Prox' do
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'ProxTests' do
+  target 'POPPINSTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -29,10 +29,10 @@ target 'Prox' do
   end
 end
 
-target 'Prox-tvOS' do
-  # Pods for Prox-tvOS
+target 'POPPINS-tvOS' do
+  # Pods for POPPINS-tvOS
 
-  target 'Prox-tvOSTests' do
+  target 'POPPINS-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
