@@ -54,6 +54,8 @@ const Search = ({ navigation, user }) => {
                                     "Steak",
                                 ]}
                                 chipTextStyle={{ color: "#6905DB" }}
+                                onChipPress={(item, index, selected) => console.log("item", item, index, selected)}
+                                selectionEnabled
 
                             />
                         </View>
