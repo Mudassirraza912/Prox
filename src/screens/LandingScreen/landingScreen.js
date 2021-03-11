@@ -3,6 +3,7 @@ import { useState } from 'react'
 import {View, Text, Image, ImageBackground, StyleSheet} from 'react-native'
 import Button from '../../components/Button'
 import CustomModal from '../../components/Modal'
+import { ParallaxDemo } from '../../components/PrallaxTabs/PrallaxTab'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
 
@@ -13,7 +14,6 @@ const LandingScreen = ({navigation}) => {
     
     return(
         <View>
-
             <ImageBackground source={Splash} style={styles.backgroundImage}>
                 <View style={styles.mainContainer}>
                     <Text style={[fontStyles.ProximaBoldH1, {color: "#fff"}]}>
