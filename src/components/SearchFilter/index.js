@@ -18,7 +18,7 @@ export const SearchFilter = forwardRef(({
         setNonCollidingMultiSliderValue,
       ] = React.useState([0, 100]);
       
-      nonCollidingMultiSliderValuesChange = values => setNonCollidingMultiSliderValue(values);
+     const nonCollidingMultiSliderValuesChange = values => setNonCollidingMultiSliderValue(values);
     return(
         <ActionSheet ref={ref}>
             <View style={[styles.container]}>
@@ -32,7 +32,7 @@ export const SearchFilter = forwardRef(({
                     </View>
                     <View style={[styles.blockContainer]}>
                         <Text style={fontStyles.ProximaRegularP2}>Distance</Text>
-                        <View style={[styles.itemContainer]}>
+                        <View style={[styles.itemContainer, {alignItems: 'center'}]}>
                             <MultiSlider
                                 values={[
                                 nonCollidingMultiSliderValue[0],
@@ -56,7 +56,7 @@ export const SearchFilter = forwardRef(({
                     </View>
                     <View style={[styles.blockContainer]}>
                         <Text style={fontStyles.ProximaRegularP2}>Price Ranges</Text>
-                        <View style={[styles.itemContainer]}>
+                        <View style={[styles.itemContainer, {alignItems: 'center'}]}>
                             <MultiSlider
                                 values={[
                                 nonCollidingMultiSliderValue[0],
@@ -79,6 +79,19 @@ export const SearchFilter = forwardRef(({
                         </View>
                     </View>
                     <View style={[styles.blockContainer]}>
+                        <Text style={fontStyles.ProximaRegularP2}>Rating</Text>
+                        <Chips
+                                data={[
+                                    1,2,3,4,5
+                                ]}
+                                chipTextStyle={{ color: "#6A7C92" }}
+                                onChipPress={(item, selected) => console.log("item", item, selected)}
+                                selectionEnabled
+                                withImage
+                                numColumns={4}
+                            />
+                    </View>
+                    <View style={[styles.blockContainer]}>
                         <Text style={fontStyles.ProximaRegularP2}>Tags</Text>
                         <Chips
                                 data={[
@@ -93,7 +106,8 @@ export const SearchFilter = forwardRef(({
                                     "Steak",
                                 ]}
                                 chipTextStyle={{ color: "#6A7C92" }}
-
+                                onChipPress={(item, selected) => console.log("item", item, selected)}
+                                selectionEnabled
                             />
                     </View>
                 </View>
