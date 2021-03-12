@@ -13,8 +13,9 @@ const LandingScreen = ({navigation}) => {
  
     
     return(
-        <View>
-            <ImageBackground source={Splash} style={styles.backgroundImage}>
+        <View style={{ flex: 1 }}>
+            <ParallaxDemo />
+            {/* <ImageBackground source={Splash} style={styles.backgroundImage}>
                 <View style={styles.mainContainer}>
                     <Text style={[fontStyles.ProximaBoldH1, {color: "#fff"}]}>
                         POPPINS
@@ -34,7 +35,7 @@ const LandingScreen = ({navigation}) => {
                             />
                     </View>
                 </View>
-            </ImageBackground>
+            </ImageBackground> */}
         </View>
     )
 }
