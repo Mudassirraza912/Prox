@@ -69,13 +69,13 @@ export const NumericInput = ({
                     color={leftIconColor}
                     />
             </View>
-            <View style={[styles.defaultInputContainerStyle, inputContainerStyle, {width: size/2, height: size/3}]}>
+            <View style={[styles.defaultInputContainerStyle, inputContainerStyle, {width: size/2.5, height: size/3}]}>
                 <TextInput
                     editable={editable}
                     value={initialValueState.toLocaleString()}
                     defaultValue={initialValueState.toLocaleString()}
                     keyboardType="number-pad"
-                    style={[styles.defaultInputStyle, inputStyle,{width: size/2, height: size/3}]}
+                    style={[styles.defaultInputStyle, inputStyle, {width: size/2.5, height: size, fontSize: size/8}]}
                     onContentSizeChange={onChange(initialValueState)}
                     onChangeText={onChangeText}
                     />

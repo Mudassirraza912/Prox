@@ -20,7 +20,7 @@ export const SearchFilter = forwardRef(({
       
      const nonCollidingMultiSliderValuesChange = values => setNonCollidingMultiSliderValue(values);
     return(
-        <ActionSheet ref={ref}>
+        <ActionSheet containerStyle={styles.mainContainer} ref={ref}>
             <View style={[styles.container]}>
                     <View style={[styles.blockContainer, styles.rowSpaceBtw]}>
                         <Text style={fontStyles.ProximaSemiBold}>
@@ -117,6 +117,10 @@ export const SearchFilter = forwardRef(({
 })
 
 const styles = StyleSheet.create({
+    mainContainer: {
+        width:'99%', 
+        borderRadius: 20
+    },
     container: {
         // flex: 1,
         paddingVertical: Platform.OS == "ios" ? 20 : 10
