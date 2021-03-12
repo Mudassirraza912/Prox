@@ -12,18 +12,22 @@ import { FlatList } from 'react-native-gesture-handler'
 import { PopularResturantsCard } from '../../components/Cards/PopularResturantCards'
 import { HorizontalCards } from '../../components/Cards/HorizontalCards'
 import SearchHeader from '../../components/SearchHeader'
-import { NumericInput } from '../../components/NumericInput'
-import Chips from '../../components/Chips'
 import { SearchFilter } from '../../components/SearchFilter/index'
+import { ItemCard } from '../../components/Cards/ItemCard'
+import { ItemDetail } from '../../components/ItemDetails/ItemDetail'
+import { NumericInput } from '../../components/NumericInput'
 
 const Home = ({ navigation, user }) => {
 
   const FilterRef = createRef()
+  const itemRef = createRef()
+
   const [showFilter, setShowFilter] = useState(false)
 
   return (
     <View style={styles.mainContainer}>
       <SearchFilter ref={FilterRef} />
+      <ItemDetail ref={itemRef} />
       <SafeAreaView> 
         <ScrollView>
           <SearchHeader
@@ -62,7 +66,7 @@ const Home = ({ navigation, user }) => {
               data={[1, 2, 3, 4, 5]}
               renderItem={({ item, index }) => {
                 return <View style={{ margin: 10 }}>
-                  <HorizontalCards />
+                  <HorizontalCards onPress={() => itemRef.current?.setModalVisible()}/>
                 </View>
               }}
               showsHorizontalScrollIndicator={false}

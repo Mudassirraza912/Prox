@@ -15,7 +15,8 @@ const Input = ({
     label = "Label here",
     labelStyle = {},
     isPassword = false, 
-    keyboardType = 'default' | 'email-address' | 'numeric' | 'phone-pad' | 'number-pad' | 'decimal-pad'
+    keyboardType = 'default' | 'email-address' | 'numeric' | 'phone-pad' | 'number-pad' | 'decimal-pad',
+    placeholder = ""
 }) => {
 
     // console.log("keyboardType", keyboardType)
@@ -40,7 +41,7 @@ const Input = ({
             <View>
                 <Text style={[styles.defaulLableStyle, label, fontStyles.ProximaRegularP2]}>{label}</Text>
                 <View style={{...styles.defaulContainerStyle, ...containerStyle}}>
-                    <TextInput keyboardType={keyboardType} secureTextEntry={isPassword && isShow} style={{width: isPassword ? "90%" : "100%"}} onChangeText={onChangeText} />
+                    <TextInput placeholder={placeholder} keyboardType={keyboardType} secureTextEntry={isPassword && isShow} style={{width: isPassword ? "90%" : "100%"}} onChangeText={onChangeText} />
                    {isPassword && 
                    <TouchableOpacity 
                    onPress={() => setIsShow(!isShow)}

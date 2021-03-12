@@ -16,13 +16,14 @@ export const HorizontalCards = ({
     distance = "4 miles",
     distanceStyle = {},
     rating = "4.8",
-    ratingStyle = {}
+    ratingStyle = {},
+    onPress = () => {}
 }) => {
 
 
         
     return (
-        <View style={[styles.defaultConatinerStyle, containerStyle]}>
+        <TouchableOpacity onPress={onPress} activeOpacity={.6} style={[styles.defaultConatinerStyle, containerStyle]}>
             <Image source={imageUrl} style={[styles.defaultImageStyle, imageStyle]} />
             <View style={[styles.defaultItemContainerStyle, itemContainerStyle]}>
                 <Text style={[fontStyles.ProximaSemiBoldSmall, titleStyle]}>{title}</Text>
@@ -40,7 +41,7 @@ export const HorizontalCards = ({
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
