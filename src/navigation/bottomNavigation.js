@@ -4,9 +4,9 @@ import { View, Text } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from '../screens/Home/Home.screen'
 
-
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwsome from 'react-native-vector-icons/FontAwesome'
+import { Notification } from '../screens/Notification/Notification'
 
 const Tab = createBottomTabNavigator()
 
@@ -29,7 +29,7 @@ function BottomTabs() {
       />
       <Tab.Screen
         name="Notification"
-        component={Home}
+        component={Notification}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
             return <Ionicons name={'ios-notifications'} size={25} color={color} />

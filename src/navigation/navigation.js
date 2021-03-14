@@ -65,6 +65,7 @@ const MainNavigation = () => {
         <Stack.Screen name="Search" component={SearchScreen}  />
         <Stack.Screen name="ViewResturant" component={ParallaxDemo}  />
         <Stack.Screen name="Checkout" component={Checkout}  />
+        <Stack.Screen name="ResturantMenu" component={ParallaxDemo} />
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}
       </Stack.Navigator>

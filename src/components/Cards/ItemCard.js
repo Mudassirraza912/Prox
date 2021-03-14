@@ -14,7 +14,7 @@ export const ItemCard = ({
     titleStyle = {},
     price = "5.00",
     priceStyle = {},
-    onPress = () => { }
+    onPress = () => {}
 }) => {
 
 
