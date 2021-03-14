@@ -63,7 +63,6 @@ const MainNavigation = () => {
         <Stack.Screen name="Selectlocation" component={Selectlocation}  />
         <Stack.Screen name="SearchGooglePlaces" component={GooglePlacesInput}  />
         <Stack.Screen name="Search" component={SearchScreen}  />
-        <Stack.Screen name="ViewResturant" component={ParallaxDemo}  />
         <Stack.Screen name="Checkout" component={Checkout}  />
         <Stack.Screen name="ResturantMenu" component={ParallaxDemo} />
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
