@@ -66,7 +66,7 @@ const Home = ({ navigation, user }) => {
               data={[1, 2, 3, 4, 5]}
               renderItem={({ item, index }) => {
                 return <View style={{ margin: 10 }}>
-                  <HorizontalCards onPress={() => itemRef.current?.setModalVisible()}/>
+                  <HorizontalCards onPress={() => {navigation.navigate("ResturantMenu")}}/>
                 </View>
               }}
               showsHorizontalScrollIndicator={false}

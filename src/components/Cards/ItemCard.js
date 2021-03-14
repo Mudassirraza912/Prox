@@ -14,12 +14,13 @@ export const ItemCard = ({
     titleStyle = {},
     price = "5.00",
     priceStyle = {},
+    onPress = () => {}
 }) => {
 
 
         
     return (
-        <View style={[styles.defaultConatinerStyle, containerStyle]}>
+        <TouchableOpacity onPress={onPress} style={[styles.defaultConatinerStyle, containerStyle]}>
             <View style={[styles.defaultImageContainer, ImageContainerStyle]}>
                 <Image source={imageUrl} style={[styles.defaultImageStyle, imageStyle]} />
             </View>
@@ -27,7 +28,7 @@ export const ItemCard = ({
                 <Text style={[fontStyles.ProximaSemiBoldSmall, titleStyle]}>{title}</Text>
                 <Text style={[fontStyles.ProximaRegularP2, priceStyle, { color: DEFAULT_THEME_COLOR }]}>${price}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

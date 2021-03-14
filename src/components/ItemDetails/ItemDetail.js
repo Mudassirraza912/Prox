@@ -6,6 +6,7 @@ import { ItemCard } from "../Cards/ItemCard";
 import { NumericInput } from '../NumericInput/index'
 import Input from "../Input";
 import Button from '../Button/index'
+import { FlavouredList } from "../FlavourList";
 
 export const ItemDetail = forwardRef(({
     onClose = () => ref.current?.setModalVisible(),
@@ -18,6 +19,14 @@ export const ItemDetail = forwardRef(({
             <View style={[styles.container]}>
                 <View style={[styles.blockContainer]}>
                     <ItemCard />
+                </View>
+                <View style={[styles.blockContainer, {marginVertical: 15}]}>
+                    <View style={styles.itemContainer}>
+                        <Text style={[fontStyles.ProximaRegularP2]}>Select Flavor</Text>
+                    </View>
+                    <FlavouredList />
+                    <FlavouredList />
+
                 </View>
                 <View style={[styles.blockContainer, styles.row, {marginVertical: 15}]}>
                     <Text style={[fontStyles.ProximaRegularP2]}>Quantity</Text>
