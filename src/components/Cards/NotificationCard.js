@@ -8,11 +8,12 @@ export const NotificationCard = ({
     title = "McDonalds",
     description = "You are 1 mile out. Your order is in the proximity lane.",
     img = mcDonald,
-    time = "8:00 am"
+    time = "8:00 am",
+    containerStyle = {}
 }) => {
 
     return(
-        <View style={[styles.rowSpacBtw, {borderBottomWidth: 1, borderBottomColor: '#F1F2FA'}]}>
+        <View style={[styles.rowSpacBtw, {borderBottomWidth: 1, borderBottomColor: '#F1F2FA'}, containerStyle]}>
             <View style={[styles.row, {width: '90%', paddingHorizontal: 10}]}>
                 <Image source={img} style={styles.imgStyle} />
                 <View>
