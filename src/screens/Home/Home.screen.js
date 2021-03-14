@@ -49,7 +49,7 @@ const Home = ({ navigation, user }) => {
               data={[1, 2, 3, 4, 5]}
               renderItem={({ item, index }) => {
                 return <View style={{ marginHorizontal: 10 }}>
-                  <PopularResturantsCard />
+                  <PopularResturantsCard onPress={() => navigation.navigate("ViewResturant")} />
                 </View>
               }}
               showsHorizontalScrollIndicator={false}
