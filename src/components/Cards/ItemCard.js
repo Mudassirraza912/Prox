@@ -1,7 +1,7 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList} from 'react-native'
+import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from 'react-native'
 import { fontStyles } from '../../constants/fontStyles'
-import {DEFAULT_THEME_COLOR} from '../../constants/colors'
+import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 const item = require('../../assets/images/chicken.png')
 
 export const ItemCard = ({
@@ -14,12 +14,13 @@ export const ItemCard = ({
     titleStyle = {},
     price = "5.00",
     priceStyle = {},
+    onPress = () => { }
 }) => {
 
 
-        
+
     return (
-        <View style={[styles.defaultConatinerStyle, containerStyle]}>
+        <TouchableOpacity onPress={onPress} activeOpacity={0.7} style={[styles.defaultConatinerStyle, containerStyle]}>
             <View style={[styles.defaultImageContainer, ImageContainerStyle]}>
                 <Image source={imageUrl} style={[styles.defaultImageStyle, imageStyle]} />
             </View>
@@ -27,14 +28,14 @@ export const ItemCard = ({
                 <Text style={[fontStyles.ProximaSemiBoldSmall, titleStyle]}>{title}</Text>
                 <Text style={[fontStyles.ProximaRegularP2, priceStyle, { color: DEFAULT_THEME_COLOR }]}>${price}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
 export const styles = StyleSheet.create({
-    defaultConatinerStyle : {
+    defaultConatinerStyle: {
         width: '100%',
-        flexDirection:'row'
+        flexDirection: 'row'
     },
     defaultImageContainer: {
         backgroundColor: '#F1F2FA',
@@ -42,11 +43,11 @@ export const styles = StyleSheet.create({
         padding: 5
     },
     defaultImageStyle: {
-        width: 80, 
+        width: 80,
         height: 80
     },
     defaultItemContainerStyle: {
-        flexDirection:'column',
+        flexDirection: 'column',
         justifyContent: 'space-evenly',
         padding: 10
     },

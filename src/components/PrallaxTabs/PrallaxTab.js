@@ -62,7 +62,7 @@ export class ParallaxDemo extends Component {
       this.heights[i] = height;
       if (this.state.activeTab === i) this.setState({ height })
     }}>
-      {new Array(x).fill(null).map((_, i) => <ItemCard containerStyle={{ margin: 10 }} />)}
+      {new Array(x).fill(null).map((_, i) => <ItemCard containerStyle={{ margin: 10 }} onPress={() => this.props.navigation.navigate("Checkout")} />)}
     </List></View>;
   heights = [500, 500];
   state = {
@@ -95,7 +95,7 @@ export class ParallaxDemo extends Component {
               </Animated.Text>
               </Title> */}
 
-              <TouchableOpacity onPress={() => alert()} style={{ backgroundColor: "rgba(0,0,0,.36)", height: 30, width: 30, borderRadius: 100, alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 10, top: Platform.OS == "ios"  ? 10 : 55 }}>
+              <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{ backgroundColor: "rgba(0,0,0,.36)", height: 30, width: 30, borderRadius: 100, alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 10, top: Platform.OS == "ios"  ? 10 : 55 }}>
                 <Ionicons name="chevron-back" size={25} color={"#fff"} />
               </TouchableOpacity>
             {/* </Body> */}
