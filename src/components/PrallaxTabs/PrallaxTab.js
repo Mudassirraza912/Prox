@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Animated, Dimensions, Platform, Text, TouchableOpacity, View } from "react-native";
+import { Alert, Animated, Dimensions, Platform, Text,  View,TouchableOpacity  } from "react-native";
 import { Body, Header, List, ListItem as Item, ScrollableTab, Tab, TabHeading, Tabs, Title } from "native-base";
 import { HorizontalCards } from "../Cards/HorizontalCards";
 import { DEFAULT_THEME_COLOR } from "../../constants/colors";
@@ -8,7 +8,8 @@ import Button from "../Button";
 import { ItemCard } from "../Cards/ItemCard";
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
-
+import { ItemDetail } from "../ItemDetails/ItemDetail";
+// import { TouchableOpacity } from 'react-native-gesture-handler'
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const IMAGE_HEIGHT = 250;
 const HEADER_HEIGHT = Platform.OS === "ios" ? 60 : 50;
@@ -17,6 +18,8 @@ const THEME_COLOR = DEFAULT_THEME_COLOR;
 const FADED_THEME_COLOR = "rgba(85,186,255, 0.8)";
 
 export class ParallaxDemo extends Component {
+ 
+  
   nScroll = new Animated.Value(0);
   scroll = new Animated.Value(0);
   textColor = this.scroll.interpolate({
@@ -62,7 +65,7 @@ export class ParallaxDemo extends Component {
       this.heights[i] = height;
       if (this.state.activeTab === i) this.setState({ height })
     }}>
-      {new Array(x).fill(null).map((_, i) => <ItemCard containerStyle={{ margin: 10 }} />)}
+      {new Array(x).fill(null).map((_, i) => <ItemCard onPress={() => this.itemRef.setModalVisible()} containerStyle={{ margin: 10 }} />)}
     </List></View>;
   heights = [500, 500];
   state = {
@@ -75,10 +78,13 @@ export class ParallaxDemo extends Component {
     this.nScroll.addListener(Animated.event([{ value: this.scroll }], { useNativeDriver: false }));
   }
 
+  
   render() {
+    console.log('this.props', this.itemRef)
     const AnmatedScrollView = Animated.createAnimatedComponent(ScrollableTab)
     return (
       <View>
+        <ItemDetail ref={e => this.itemRef = e} />
         <Animated.View
           style={{
             position: "absolute",
@@ -95,7 +101,7 @@ export class ParallaxDemo extends Component {
               </Animated.Text>
               </Title> */}
 
-              <TouchableOpacity onPress={() => alert()} style={{ backgroundColor: "rgba(0,0,0,.36)", height: 30, width: 30, borderRadius: 100, alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 10, top: Platform.OS == "ios"  ? 10 : 55 }}>
+              <TouchableOpacity onPress={() => Alert.alert("Alert")}  style={{ backgroundColor: "rgba(0,0,0,.36)", height: 30, width: 30, borderRadius: 100, alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 10, marginTop: Platform.OS == "ios"  ? 10 : 55 }}>
                 <Ionicons name="chevron-back" size={25} color={"#fff"} />
               </TouchableOpacity>
             {/* </Body> */}
