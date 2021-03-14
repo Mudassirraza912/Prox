@@ -84,7 +84,7 @@ export class ParallaxDemo extends Component {
     const AnmatedScrollView = Animated.createAnimatedComponent(ScrollableTab)
     return (
       <View>
-        <ItemDetail ref={e => this.itemRef = e} />
+        <ItemDetail ref={e => this.itemRef = e} closeModal={()=>this.itemRef.setModalVisible(false)} goTo={(screen) => this.props.navigation.navigate(screen)} />
         <Animated.View
           style={{
             position: "absolute",

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList} from 'react-native'
+import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from 'react-native'
 import { fontStyles } from '../../constants/fontStyles'
 
 const item = require('../../assets/images/item.png')
@@ -14,43 +14,44 @@ export const PopularResturantsCard = ({
     distance = "4 miles",
     distanceStyle = {},
     rating = "4.8",
-    ratingStyle = {}
+    ratingStyle = {},
+    onPress = () => { }
 }) => {
 
 
-        
+
     return (
-        <View style={[styles.defaultConatinerStyle, containerStyle]}>
+        <TouchableOpacity onPress={onPress} activeOpacity={0.7} style={[styles.defaultConatinerStyle, containerStyle]}>
             <Image source={imageUrl} style={[styles.defaultImageStyle, imageStyle]} />
             <View style={[styles.defaultItemContainerStyle, itemContainerStyle]}>
                 <Text style={[fontStyles.ProximaSemiBoldSmall, titleStyle]}>{title}</Text>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                     <Text style={[fontStyles.ProximaRegularP2, distanceStyle]}>
                         {distance}
                     </Text>
                     <Text> . </Text>
-                    <View style={{flexDirection: 'row'}}>
-                        <Image source={start} style={{top: 2, paddingHorizontal: 3}}/>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Image source={start} style={{ top: 2, paddingHorizontal: 3 }} />
                         <Text style={[fontStyles.ProximaRegularP2, ratingStyle]}>
-                             {rating}
+                            {rating}
                         </Text>
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
 export const styles = StyleSheet.create({
-    defaultConatinerStyle : {
+    defaultConatinerStyle: {
     },
     defaultImageStyle: {
         borderRadius: 10,
-        width: 189, 
+        width: 189,
         height: 228
     },
     defaultItemContainerStyle: {
-        flexDirection:'column',
+        flexDirection: 'column',
         justifyContent: 'space-evenly',
         padding: 10
     },

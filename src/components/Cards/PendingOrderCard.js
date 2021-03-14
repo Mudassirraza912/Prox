@@ -33,15 +33,14 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         marginTop: 10
       },
-      itemContainer: {
+    itemContainer: {
         paddingVertical: 5,
       },
-      mapStyle: {
+    mapStyle: {
           height: 250,
           width: "100%",
-        
       },
-      mapContainer: { 
+    mapContainer: { 
           justifyContent: 'flex-start', 
           borderWidth: 1, 
           borderColor: '#707070',

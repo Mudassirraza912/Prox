@@ -8,10 +8,11 @@ const Header = ({
     leftIcon = true,
     leftIconName = "close",
     leftButtonPress = () => { },
-    renderRightComponent = () => { }
+    renderRightComponent = () => { },
+    containerStyle = {}
 }) => {
     return (
-        <View style={styles.headerContainer}>
+        <View style={[styles.headerContainer, containerStyle]}>
             {leftIcon && (
                 <TouchableOpacity style={styles.leftContainer} onPress={leftButtonPress} >
                     <Ionicons name={leftIconName} size={25} />
