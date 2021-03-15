@@ -7,6 +7,7 @@ import Home from '../screens/Home/Home.screen'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwsome from 'react-native-vector-icons/FontAwesome'
 import { Notification } from '../screens/Notification/Notification'
+import { Order } from '../screens/Order/order'
 
 const Tab = createBottomTabNavigator()
 
@@ -42,7 +43,7 @@ function BottomTabs() {
       />
       <Tab.Screen
         name="Orders"
-        component={Home}
+        component={Order}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
             return <FontAwsome name={'shopping-bag'} size={25} color={color} />
