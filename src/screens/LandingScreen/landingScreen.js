@@ -2,11 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import { View, Text, Image, ImageBackground, StyleSheet } from 'react-native'
 import Button from '../../components/Button'
-import CustomModal from '../../components/Modal'
-import { ParallaxDemo } from '../../components/PrallaxTabs/PrallaxTab'
+import { CompletedOrderCard } from '../../components/Cards/CompletedOrderCard'
+import { PendingOrderCard } from '../../components/Cards/PendingOrderCard'
+import { OrderToggle } from '../../components/Toggle/OrderToggle'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
-
 const Splash = require('../../assets/images/Splash.png')
 const LandingScreen = ({ navigation }) => {
 
@@ -35,7 +35,6 @@ const LandingScreen = ({ navigation }) => {
                     </View>
                 </View>
             </ImageBackground>
-            {/* <ParallaxDemo /> */}
         </View>
     )
 }
