@@ -41,7 +41,7 @@ const Settings = () => {
             lefIconSize: 25,
              containerStyle: {
                 paddingVertical: 20
-            }
+            }   
         },
         {
             title: "Contact Us",
@@ -51,7 +51,7 @@ const Settings = () => {
             lefIconSize: 25,
              containerStyle: {
                 paddingVertical: 20
-            }
+            }   
         },
         {
             title: "Privacy Policy",
@@ -61,7 +61,7 @@ const Settings = () => {
             lefIconSize: 25,
              containerStyle: {
                 paddingVertical: 20
-            }
+            }   
         },
         {
             title: "Terms & Conditions",
@@ -71,7 +71,7 @@ const Settings = () => {
             lefIconSize: 25,
              containerStyle: {
                 paddingVertical: 20
-            }
+            }   
         },
         {
             title: "Log out",
@@ -81,19 +81,20 @@ const Settings = () => {
             lefIconSize: 25,
              containerStyle: {
                 paddingVertical: 20
-            }
+            },
+            onPress: () => alert()
         },
     ])
 
     return (
         <View style={styles.container}>
-            <SafeAreaView>
+            {/* <SafeAreaView> */}
                 <View style={styles.blockContainer}>
                     <Text style={fontStyles.ProximaBoldH1}>
                         Settings
                     </Text>
                 </View>
-                <View style= {{ marginTop: 10 }}>
+                <View style= {{ marginTop: 10, flex: 1 }}>
                     {/* <List
                         subtitle={"+123 456 7890"}
                         avatarText={"RD"}
@@ -115,7 +116,7 @@ const Settings = () => {
                       }}
                     />
                 </View>
-            </SafeAreaView>
+            {/* </SafeAreaView> */}
         </View>
     )
 }

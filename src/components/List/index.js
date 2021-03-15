@@ -23,9 +23,10 @@ const List = ({
     titleStyle = {},
     subTitleStyle = {},
     containerStyle = {},
+    onPress = () => { }
 }) => {
     return (
-        <TouchableOpacity activeOpacity={0.7} style={[styles.mainContainer, containerStyle]}>
+        <TouchableOpacity onPress={onPress} activeOpacity={0.7} style={[styles.mainContainer, containerStyle]}>
             {avatar && <View>
                 {typeof avatarImage == "string" ? <View style={styles.avatarTitleContainer}>
                     <Text style={[fontStyles.ProximaBoldH1, styles.avatarText]}>{avatarText}</Text>
