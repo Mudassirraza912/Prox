@@ -22,9 +22,19 @@ const percentImage = require("../../assets/images/percent.png")
 
 const Checkout = ({ navigation }) => {
     const [selected, setselected] = useState(0)
-
+    const [show, setShow] = useState(false)
     return (
         <View style={styles.mainContainer}>
+            <CustomModal modalVisibel={show} successIcon title="Your order has been placed"
+            discription="You will receive a notification when you're nearby!" buttons={[
+                {
+                    title: "Close",
+                    onPress: () => {
+                        navigation.navigate('Home')
+                        setShow(false)
+                    }
+                }
+            ]} />
             <Header
                 centerText={"Checkout"}
                 leftButtonPress={() => navigation.goBack()}
@@ -101,8 +111,9 @@ const Checkout = ({ navigation }) => {
                             </View>
 
                             <Button
-                              title="Place Order"
-                              containerStyle={{ marginTop: 20 }}
+                                onPress={() => setShow(true)}
+                                title="Place Order"
+                                containerStyle={{ marginTop: 20 }}
                             />
 
                         </View>

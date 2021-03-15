@@ -17,7 +17,7 @@ export const Order = ({navigation}) => {
                     <>
                         {[1,2,3,4,5].map((val, ind) => {
                             return  <View key={ind} style={[styles.blockContainer, {top: 10}]}>
-                                        <PendingOrderCard /> 
+                                        <PendingOrderCard navigation={navigation} /> 
                                     </View>
                         })}
                     </>
@@ -25,7 +25,7 @@ export const Order = ({navigation}) => {
                     <>
                     {[1,2,3,4,5].map((val, ind) => {
                         return  <View key={ind} style={[styles.blockContainer, {marginVertical: 10}]}>
-                                    <CompletedOrderCard /> 
+                                    <CompletedOrderCard navigation={navigation} /> 
                                 </View>
                     })}
                 </>

@@ -19,34 +19,9 @@ import SearchScreen from '../screens/Search/Search.screen'
 import GooglePlacesInput from '../components/Map/LocationSearch'
 import { ParallaxDemo } from '../components/PrallaxTabs/PrallaxTab'
 import Checkout from '../screens/Checkout'
-
+import { RatingReview } from '../screens/RatingReview/RatingReview'
 const Stack = createStackNavigator()
-const Tab = createBottomTabNavigator()
 
-function MyTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: ({ focused, color, size }) => {
-            return <Icon name={'ios-home'} size={25} color={color} />
-          }
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarIcon: ({ focused, color, size }) => {
-            return <Icon name={'ios-settings'} size={25} color={color} />
-          }
-        }}
-      />
-    </Tab.Navigator>
-  )
-}
 
 const MainNavigation = () => {
   return (
@@ -65,6 +40,8 @@ const MainNavigation = () => {
         <Stack.Screen name="Search" component={SearchScreen}  />
         <Stack.Screen name="Checkout" component={Checkout}  />
         <Stack.Screen name="ResturantMenu" component={ParallaxDemo} />
+        <Stack.Screen name="RatingReview" component={RatingReview} />
+
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}
       </Stack.Navigator>

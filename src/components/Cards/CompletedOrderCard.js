@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, Image, StyleSheet} from 'react-native'
 import Button from '../Button'
 import { HorizontalCards } from '../Cards/HorizontalCards'
-export const CompletedOrderCard = () => {
+export const CompletedOrderCard = ({navigation}) => {
 
     return(
         <View>
@@ -10,8 +10,8 @@ export const CompletedOrderCard = () => {
                 <HorizontalCards />
             </View>
             <View style={[styles.itemContainer, styles.rowSpaceBtw, styles.border, {width: '95%', alignSelf: 'center'}]}>
-                <Button title="Re Order" containerStyle={{width: '45%'}} />
-                <Button title="Rating" containerStyle={{width: '45%'}} lightTheme />
+                <Button title="Re Order" containerStyle={{width: '45%'}} onPress={() => navigation.navigate('Checkout')} />
+                <Button title="Rating" containerStyle={{width: '45%'}} lightTheme onPress={() => navigation.navigate('RatingReview')} />
             </View>
         </View>
     )
