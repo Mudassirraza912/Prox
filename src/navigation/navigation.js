@@ -20,6 +20,8 @@ import GooglePlacesInput from '../components/Map/LocationSearch'
 import { ParallaxDemo } from '../components/PrallaxTabs/PrallaxTab'
 import Checkout from '../screens/Checkout'
 import { RatingReview } from '../screens/RatingReview/RatingReview'
+import PrivacyPolicy from '../screens/PrivacyPolicy'
+import TermsAndConditions from '../screens/TermAndConditions'
 const Stack = createStackNavigator()
 
 
@@ -41,6 +43,8 @@ const MainNavigation = () => {
         <Stack.Screen name="Checkout" component={Checkout}  />
         <Stack.Screen name="ResturantMenu" component={ParallaxDemo} />
         <Stack.Screen name="RatingReview" component={RatingReview} />
+        <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+        <Stack.Screen name="TermsAndConditions" component={TermsAndConditions} />
 
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}

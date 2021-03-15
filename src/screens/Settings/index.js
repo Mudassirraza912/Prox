@@ -4,7 +4,7 @@ import { FlatList, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-
 import List from '../../components/List'
 import { fontStyles } from '../../constants/fontStyles'
 
-const Settings = () => {
+const Settings = ({ navigation }) => {
 
     const [list] = useState([
         {
@@ -61,7 +61,8 @@ const Settings = () => {
             lefIconSize: 25,
              containerStyle: {
                 paddingVertical: 20
-            }   
+            },
+            onPress: () => navigation.navigate("PrivacyPolicy")   
         },
         {
             title: "Terms & Conditions",
@@ -71,7 +72,8 @@ const Settings = () => {
             lefIconSize: 25,
              containerStyle: {
                 paddingVertical: 20
-            }   
+            },
+            onPress: () => navigation.navigate("TermsAndConditions")
         },
         {
             title: "Log out",
@@ -82,7 +84,7 @@ const Settings = () => {
              containerStyle: {
                 paddingVertical: 20
             },
-            onPress: () => alert()
+            // onPress: () => alert()
         },
     ])
 
