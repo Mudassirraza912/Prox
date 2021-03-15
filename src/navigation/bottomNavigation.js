@@ -7,6 +7,7 @@ import Home from '../screens/Home/Home.screen'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwsome from 'react-native-vector-icons/FontAwesome'
 import { Notification } from '../screens/Notification/Notification'
+import Settings from '../screens/Settings'
 
 const Tab = createBottomTabNavigator()
 
@@ -51,7 +52,7 @@ function BottomTabs() {
       />
       <Tab.Screen
         name="Profile"
-        component={Home}
+        component={Settings}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
             return <Ionicons name={'ios-settings'} size={25} color={color} />

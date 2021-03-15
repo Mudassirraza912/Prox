@@ -22,93 +22,111 @@ const percentImage = require("../../assets/images/percent.png")
 
 const Checkout = ({ navigation }) => {
     const [selected, setselected] = useState(0)
+    const [orderPlaced, setOrderPlaced] = useState(false)
 
     return (
         <View style={styles.mainContainer}>
             <Header
                 centerText={"Checkout"}
                 leftButtonPress={() => navigation.goBack()}
-            containerStyle={{ marginTop: 20 }}
+                containerStyle={{ marginTop: 20 }}
+            />
+            <CustomModal
+                modalVisibel={orderPlaced}
+                successIcon
+                title="Your order has been placed"
+                discription={"You will receive a notification when you're nearby!"}
+                buttons={[
+                    {
+                        title: "Close",
+                        onPress: () => {
+                            setOrderPlaced(false)
+                            navigation.navigate("Home")
+                        }
+                    }
+                ]}
+
             />
             {/* <SafeAreaView> */}
-                <ScrollView >
-                    <View style={styles.mainContainer}>
-                        <ListItem itemDivider={false} avatar style={styles.resturantDetailsContainer}>
-                            <Left style={styles.rdLeftContainer}>
-                                <Thumbnail style={{ height: 20, width: 15 }} source={mapImage} />
-                            </Left>
-                            <Body style={styles.rdBody}>
-                                <Text style={[fontStyles.ProximaSemiBold]}>McDonald's</Text>
-                                <Text style={[fontStyles.ProximaRegularP2, styles.addressText]} >102  Trouser Leg Road, Springfield</Text>
-                            </Body>
-                        </ListItem>
+            <ScrollView >
+                <View style={styles.mainContainer}>
+                    <ListItem itemDivider={false} avatar style={styles.resturantDetailsContainer}>
+                        <Left style={styles.rdLeftContainer}>
+                            <Thumbnail style={{ height: 20, width: 15 }} source={mapImage} />
+                        </Left>
+                        <Body style={styles.rdBody}>
+                            <Text style={[fontStyles.ProximaSemiBold]}>McDonald's</Text>
+                            <Text style={[fontStyles.ProximaRegularP2, styles.addressText]} >102  Trouser Leg Road, Springfield</Text>
+                        </Body>
+                    </ListItem>
 
-                        <View style={styles.cartDetails}>
-                            <View>
-                                <Text style={[fontStyles.ProximaSemiBoldSmall]}>1 pc Chicken Mcdo w/ Rice</Text>
-                                <TouchableOpacity style={{ marginTop: 15 }}>
-                                    <Text style={[fontStyles.ProximaSemiBoldSmall, styles.edit]}>Edit</Text>
-                                </TouchableOpacity>
+                    <View style={styles.cartDetails}>
+                        <View>
+                            <Text style={[fontStyles.ProximaSemiBoldSmall]}>1 pc Chicken Mcdo w/ Rice</Text>
+                            <TouchableOpacity style={{ marginTop: 15 }}>
+                                <Text style={[fontStyles.ProximaSemiBoldSmall, styles.edit]}>Edit</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={fontStyles.ProximaRegularP2}>$5.00</Text>
+                    </View>
+
+                    <View style={styles.paymentContainer}>
+                        <PaymentRadio
+                            title={"Credit / Debit Card (1345)"}
+                            leftImage={creditCardImage}
+                            selected={selected == 0}
+                            onPress={() => setselected(0)}
+                        />
+                        <PaymentRadio
+                            title={"Paypal"}
+                            selected={selected == 1}
+                            leftImage={payPalImage}
+                            containerStyle={{ marginTop: 10 }}
+                            imageStyle={{ width: 25, marginStart: 5 }}
+                            onPress={() => setselected(1)}
+                        />
+
+                        <Text style={[fontStyles.ProximaSemiBoldSmall, styles.addCouponText]}>Add Coupon</Text>
+
+                        <View style={{ width: "90%", flexDirection: 'row', alignSelf: "center", alignItems: "center", borderRadius: 10, overflow: "hidden" }}>
+                            <View style={{ width: "80%" }}>
+                                <Input
+                                    containerStyle={{ width: "100%", borderRadius: 0, borderTopLeftRadius: 10 }}
+                                    label={""}
+                                    placeholder="Coupon Code"
+                                    keyboardType="default" />
                             </View>
+                            <View style={{ width: "20%", backgroundColor: "#FFBE00", alignItems: "center", justifyContent: "center", paddingVertical: 13, marginTop: 25, borderTopRightRadius: 10 }} >
+                                <Image source={percentImage} style={{ height: 30, width: 30 }} />
+                            </View>
+                        </View>
+                    </View>
+
+
+                    <View style={styles.orderDetails}>
+                        <View style={styles.orderDetailsSubContainer}>
+                            <Text style={fontStyles.ProximaRegularP2}>Subtotal</Text>
                             <Text style={fontStyles.ProximaRegularP2}>$5.00</Text>
                         </View>
-
-                        <View style={styles.paymentContainer}>
-                            <PaymentRadio
-                                title={"Credit / Debit Card (1345)"}
-                                leftImage={creditCardImage}
-                                selected={selected == 0}
-                                onPress={() => setselected(0)}
-                            />
-                            <PaymentRadio
-                                title={"Paypal"}
-                                selected={selected == 1}
-                                leftImage={payPalImage}
-                                containerStyle={{ marginTop: 10 }}
-                                imageStyle={{ width: 25, marginStart: 5 }}
-                                onPress={() => setselected(1)}
-                            />
-
-                            <Text style={[fontStyles.ProximaSemiBoldSmall, styles.addCouponText]}>Add Coupon</Text>
-
-                            <View style={{ width: "90%", flexDirection: 'row', alignSelf: "center", alignItems: "center", borderRadius: 10, overflow: "hidden" }}>
-                                <View style={{ width: "80%" }}>
-                                    <Input
-                                        containerStyle={{ width: "100%", borderRadius: 0, borderTopLeftRadius: 10 }}
-                                        label={""}
-                                        placeholder="Coupon Code"
-                                        keyboardType="default" />
-                                </View>
-                                <View style={{ width: "20%", backgroundColor: "#FFBE00", alignItems: "center", justifyContent: "center", paddingVertical: 13, marginTop: 25, borderTopRightRadius: 10 }} >
-                                    <Image source={percentImage} style={{ height: 30, width: 30 }} />
-                                </View>
-                            </View>
+                        <View style={styles.orderDetailsSubContainer}>
+                            <Text style={fontStyles.ProximaRegularP2}>Fees & Taxes</Text>
+                            <Text style={fontStyles.ProximaRegularP2}>$1.00</Text>
+                        </View>
+                        <View style={styles.orderDetailsSubContainer}>
+                            <Text style={fontStyles.ProximaSemiBold}>Total</Text>
+                            <Text style={fontStyles.ProximaSemiBold}>$6.00</Text>
                         </View>
 
-
-                        <View style={styles.orderDetails}>
-                            <View style={styles.orderDetailsSubContainer}>
-                                <Text style={fontStyles.ProximaRegularP2}>Subtotal</Text>
-                                <Text style={fontStyles.ProximaRegularP2}>$5.00</Text>
-                            </View>
-                            <View style={styles.orderDetailsSubContainer}>
-                                <Text style={fontStyles.ProximaRegularP2}>Fees & Taxes</Text>
-                                <Text style={fontStyles.ProximaRegularP2}>$1.00</Text>
-                            </View>
-                            <View style={styles.orderDetailsSubContainer}>
-                                <Text style={fontStyles.ProximaSemiBold}>Total</Text>
-                                <Text style={fontStyles.ProximaSemiBold}>$6.00</Text>
-                            </View>
-
-                            <Button
-                              title="Place Order"
-                              containerStyle={{ marginTop: 20 }}
-                            />
-
-                        </View>
+                        <Button
+                            title="Place Order"
+                            containerStyle={{ marginTop: 20 }}
+                            onPress={() => setOrderPlaced(true)}
+                        />
 
                     </View>
-                </ScrollView>
+
+                </View>
+            </ScrollView>
             {/* </SafeAreaView> */}
         </View>
     )
