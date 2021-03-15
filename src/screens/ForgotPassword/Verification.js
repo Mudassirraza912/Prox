@@ -37,9 +37,9 @@ const VerificationOTP = ({navigation}) => {
             </View>
 
             <View style={[styles.signUpText, {marginTop: 60}]}>
-                <Text style={fontStyles.ProximaRegularP1}>Don't have an account?</Text> 
+                <Text style={fontStyles.ProximaRegularP1}>Didn't recieve code?</Text> 
                 <TouchableOpacity>
-                    <Text style={[fontStyles.ProximaRegularP1, {color: DEFAULT_THEME_COLOR}]}> Sign up</Text>
+                    <Text style={[fontStyles.ProximaRegularP1, {color: DEFAULT_THEME_COLOR}]}> Resend (33s)</Text>
                 </TouchableOpacity>
             </View>
 

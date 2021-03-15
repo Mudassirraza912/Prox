@@ -9,18 +9,21 @@ export const NotificationCard = ({
     description = "You are 1 mile out. Your order is in the proximity lane.",
     img = mcDonald,
     time = "8:00 am",
-    containerStyle = {}
+    containerStyle = {},
+    descriptionStyle = {},
+    divider = true
 }) => {
 
     return(
-        <View style={[styles.rowSpacBtw, {borderBottomWidth: 1, borderBottomColor: '#F1F2FA'}, containerStyle]}>
+        <>
+        <View style={[styles.rowSpacBtw, containerStyle]}>
             <View style={[styles.row, {width: '90%', paddingHorizontal: 10}]}>
                 <Image source={img} style={styles.imgStyle} />
                 <View>
                     <Text style={[fontStyles.ProximaSemiBold]}>
                         {title}
                     </Text>
-                    <Text style={[fontStyles.ProximaRegularP2, {color: '#6A7C92', width: '95%'}]}>
+                    <Text style={[fontStyles.ProximaRegularP2, {color: '#6A7C92', width: '95%'}, descriptionStyle]}>
                         {description}
                     </Text>
                 </View>
@@ -31,6 +34,8 @@ export const NotificationCard = ({
                 </Text>
             </View>
          </View>
+         {divider && <View style={styles.divider} />}
+         </>
     )
 }
 
@@ -53,5 +58,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         right: 10,
         marginHorizontal: 5
+    },
+    divider: {
+        backgroundColor: '#F1F2FA',
+        height: 1,
+        width: '100%'
     }
 })

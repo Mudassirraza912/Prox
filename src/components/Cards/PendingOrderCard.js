@@ -15,7 +15,13 @@ export const PendingOrderCard = ({
         <View style={styles.main}>
             <View>
                  <Map mapStyle={[styles.mapStyle, { overflow: 'hidden'}]} containerStyle={[styles.mapStyle, styles.mapContainer]} />
-                <NotificationCard img={img} title={title} description={address} time={`$${price}`} containerStyle={{borderBottomLeftRadius: 20, borderBottomRightRadius: 20}}/>
+                <NotificationCard 
+                img={img} title={title} 
+                description={address} 
+                time={`$${price}`} 
+                divider={false}
+                containerStyle={{borderBottomLeftRadius: 20, borderBottomRightRadius: 20, borderColor: '#F1F2FA', borderWidth: 1}}
+                descriptionStyle={{width: '85%'}}/>
             </View>
         </View>
     )
@@ -25,7 +31,6 @@ const styles = StyleSheet.create({
     main: {
         // borderBottomRightRadius: 100,
         width: '95%',
-        top: 50,
         alignSelf:'center'
     },
     blockContainer: {
@@ -42,11 +47,12 @@ const styles = StyleSheet.create({
       },
     mapContainer: { 
           justifyContent: 'flex-start', 
-          borderWidth: 1, 
-          borderColor: '#707070',
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
           overflow:'hidden',
-
-        }
+        },
+    divider: {
+        borderWidth: 1, 
+        borderColor: '#707070',
+    }
 })

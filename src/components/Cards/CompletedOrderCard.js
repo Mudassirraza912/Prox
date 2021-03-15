@@ -9,7 +9,7 @@ export const CompletedOrderCard = () => {
             <View style={styles.blockContainer}>
                 <HorizontalCards />
             </View>
-            <View style={[styles.itemContainer, styles.rowSpaceBtw, {width: '95'}]}>
+            <View style={[styles.itemContainer, styles.rowSpaceBtw, styles.border, {width: '95%', alignSelf: 'center'}]}>
                 <Button title="Re Order" containerStyle={{width: '45%'}} />
                 <Button title="Rating" containerStyle={{width: '45%'}} lightTheme />
             </View>
@@ -19,15 +19,18 @@ export const CompletedOrderCard = () => {
 
 const styles = StyleSheet.create({
     blockContainer: {
-        paddingVertical: 5,
-        paddingHorizontal: 15,
-        marginTop: 10
+        // paddingVertical: 5,
+        // paddingHorizontal: 15,
       },
     itemContainer: {
         paddingVertical: 5,
       },
     rowSpaceBtw : {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+    },
+    border: {
+        borderBottomColor: '#F1F2FA',
+        borderBottomWidth: 1,
     }
 })
