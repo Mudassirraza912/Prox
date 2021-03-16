@@ -22,6 +22,9 @@ import Checkout from '../screens/Checkout'
 import { RatingReview } from '../screens/RatingReview/RatingReview'
 import PrivacyPolicy from '../screens/PrivacyPolicy'
 import TermsAndConditions from '../screens/TermAndConditions'
+import { ContactUs } from '../screens/ContactUs/contactUs'
+import { NotificationSetting } from '../screens/Notification/NotificationSetting'
+
 const Stack = createStackNavigator()
 
 
@@ -45,6 +48,8 @@ const MainNavigation = () => {
         <Stack.Screen name="RatingReview" component={RatingReview} />
         <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
         <Stack.Screen name="TermsAndConditions" component={TermsAndConditions} />
+        <Stack.Screen name="ContactUs" component={ContactUs} />
+        <Stack.Screen name="NotificationSetting" component={NotificationSetting} />
 
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}
