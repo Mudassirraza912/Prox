@@ -3,6 +3,7 @@ import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Platform } 
 import IntlPhoneInput from 'react-native-intl-phone-input';
 import { fontStyles } from "../../constants/fontStyles";
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { DEFAULT_THEME_COLOR } from "../../constants/colors";
 
 const eye = require('../../assets/images/eye.png')
 
@@ -20,7 +21,9 @@ const Input = ({
     rightComponent = false,
     renderRightComponent = () => { },
     numberOfLines = 1,
-    multiline = false
+    multiline = false,
+    value = '',
+    changeNumberButton = false
 }) => {
 
     // console.log("keyboardType", keyboardType)
@@ -30,12 +33,18 @@ const Input = ({
         return (
             <View>
                 <Text style={[styles.defaulLableStyle, label, fontStyles.ProximaRegularP2]}>{label}</Text>
-                <IntlPhoneInput
-                    flagStyle={[flagStyle, isFlag ? {} : styles.dafaulFlagStyle]}
-                    containerStyle={{ ...styles.defaulContainerStyle, ...containerStyle }}
-                    onChangeText={onChangeText}
-                    defaultCountry="US"
-                />
+                <View>
+                    <IntlPhoneInput
+                        flagStyle={[flagStyle, isFlag ? {} : styles.dafaulFlagStyle]}
+                        containerStyle={{ ...styles.defaulContainerStyle, ...containerStyle }}
+                        onChangeText={onChangeText}
+                        defaultCountry="US"
+                        value={value}
+                    />
+                    {changeNumberButton && <TouchableOpacity style={{ position: "absolute", right: 20, top: "35%" }}>
+                        <Text style={[fontStyles.ProximaSemiBoldSmall, { color: DEFAULT_THEME_COLOR }]}>CHANGE</Text>
+                    </TouchableOpacity>}
+                </View>
             </View>
         )
     }
@@ -45,7 +54,7 @@ const Input = ({
             <View>
                 <Text style={[styles.defaulLableStyle, label, fontStyles.ProximaRegularP2]}>{label}</Text>
                 <View style={{ ...styles.defaulContainerStyle, ...containerStyle }}>
-                    <TextInput multiline={multiline} numberOfLines={numberOfLines} multiline={true} placeholder={placeholder} keyboardType={keyboardType} secureTextEntry={isPassword && isShow} style={{ width: (isPassword || rightComponent) ? "90%" : "100%" }} onChangeText={onChangeText} />
+                    <TextInput multiline={multiline} value={value} numberOfLines={numberOfLines} multiline={true} placeholder={placeholder} keyboardType={keyboardType} secureTextEntry={isPassword && isShow} style={{ width: (isPassword || rightComponent) ? "90%" : "100%" }} onChangeText={onChangeText} />
                     {isPassword &&
                         <TouchableOpacity
                             onPress={() => setIsShow(!isShow)}

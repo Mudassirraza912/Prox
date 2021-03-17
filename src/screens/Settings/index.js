@@ -11,11 +11,12 @@ const Settings = ({ navigation }) => {
             title: "Robert Davidson",
             subtitle: "+123 456 7890",
             avatarText: "RD",
-            avatar: true
+            avatar: true,
+            onPress: () => navigation.navigate("Profile")
         },
         {
             title: "Payment Card",
-            titleStyle:  { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
+            titleStyle: { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
             leftIcon: true,
             leftIconName: "card-outline",
             lefIconSize: 25,
@@ -25,63 +26,64 @@ const Settings = ({ navigation }) => {
         },
         {
             title: "Change Password",
-            titleStyle:  { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
+            titleStyle: { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
             leftIcon: true,
             leftIconName: "lock-closed",
+            lefIconSize: 25,
+            containerStyle: {
+                paddingVertical: 20
+            },
+            // onPress: () => navigation.navigate("ChangePassword")
+        },
+        {
+            title: "Notifications Settings",
+            titleStyle: { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
+            leftIcon: true,
+            leftIconName: "notifications",
             lefIconSize: 25,
             containerStyle: {
                 paddingVertical: 20
             }
         },
         {
-            title: "Notifications Settings",
-            titleStyle:  { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
-            leftIcon: true,
-            leftIconName: "notifications",
-            lefIconSize: 25,
-             containerStyle: {
-                paddingVertical: 20
-            }   
-        },
-        {
             title: "Contact Us",
-            titleStyle:  { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
+            titleStyle: { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
             leftIcon: true,
             leftIconName: "call",
             lefIconSize: 25,
-             containerStyle: {
+            containerStyle: {
                 paddingVertical: 20
-            }   
+            }
         },
         {
             title: "Privacy Policy",
-            titleStyle:  { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
+            titleStyle: { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
             leftIcon: true,
             leftIconName: "shield",
             lefIconSize: 25,
-             containerStyle: {
+            containerStyle: {
                 paddingVertical: 20
             },
-            onPress: () => navigation.navigate("PrivacyPolicy")   
+            onPress: () => navigation.navigate("PrivacyPolicy")
         },
         {
             title: "Terms & Conditions",
-            titleStyle:  { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
+            titleStyle: { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
             leftIcon: true,
             leftIconName: "document",
             lefIconSize: 25,
-             containerStyle: {
+            containerStyle: {
                 paddingVertical: 20
             },
             onPress: () => navigation.navigate("TermsAndConditions")
         },
         {
             title: "Log out",
-            titleStyle:  { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
+            titleStyle: { color: "#000", ...fontStyles.ProximaRegularP1, marginStart: 10 },
             leftIcon: true,
             leftIconName: "log-out-outline",
             lefIconSize: 25,
-             containerStyle: {
+            containerStyle: {
                 paddingVertical: 20
             },
             // onPress: () => alert()
@@ -91,13 +93,13 @@ const Settings = ({ navigation }) => {
     return (
         <View style={styles.container}>
             {/* <SafeAreaView> */}
-                <View style={styles.blockContainer}>
-                    <Text style={fontStyles.ProximaBoldH1}>
-                        Settings
+            <View style={styles.blockContainer}>
+                <Text style={fontStyles.ProximaBoldH1}>
+                    Settings
                     </Text>
-                </View>
-                <View style= {{ marginTop: 10, flex: 1 }}>
-                    {/* <List
+            </View>
+            <View style={{ marginTop: 10, flex: 1 }}>
+                {/* <List
                         subtitle={"+123 456 7890"}
                         avatarText={"RD"}
                         title="Robert Davidson"
@@ -111,13 +113,13 @@ const Settings = ({ navigation }) => {
                         lefIconSize={25}
                     /> */}
 
-                    <FlatList 
-                      data={list}
-                      renderItem={({ item }) => {
-                          return <List {...item} />
-                      }}
-                    />
-                </View>
+                <FlatList
+                    data={list}
+                    renderItem={({ item }) => {
+                        return <List {...item} />
+                    }}
+                />
+            </View>
             {/* </SafeAreaView> */}
         </View>
     )

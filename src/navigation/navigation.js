@@ -45,6 +45,7 @@ const MainNavigation = () => {
         <Stack.Screen name="RatingReview" component={RatingReview} />
         <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
         <Stack.Screen name="TermsAndConditions" component={TermsAndConditions} />
+        <Stack.Screen name="Profile" component={Profile} />
 
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}
