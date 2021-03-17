@@ -21,7 +21,8 @@ const Settings = ({ navigation }) => {
             lefIconSize: 25,
             containerStyle: {
                 paddingVertical: 20
-            }
+            },
+            onPress: () => navigation.navigate("PaymentCard")
         },
         {
             title: "Change Password",
