@@ -20,7 +20,8 @@ const Input = ({
     rightComponent = false,
     renderRightComponent = () => { },
     numberOfLines = 1,
-    multiline = false
+    multiline = false,
+    inputStyle = {}
 }) => {
 
     // console.log("keyboardType", keyboardType)
@@ -45,7 +46,7 @@ const Input = ({
             <View>
                 <Text style={[styles.defaulLableStyle, label, fontStyles.ProximaRegularP2]}>{label}</Text>
                 <View style={{ ...styles.defaulContainerStyle, ...containerStyle }}>
-                    <TextInput multiline={multiline} numberOfLines={numberOfLines} multiline={true} placeholder={placeholder} keyboardType={keyboardType} secureTextEntry={isPassword && isShow} style={{ width: (isPassword || rightComponent) ? "90%" : "100%" }} onChangeText={onChangeText} />
+                    <TextInput multiline={multiline} numberOfLines={numberOfLines} multiline={true} placeholder={placeholder} keyboardType={keyboardType} secureTextEntry={isPassword && isShow} style={[{ width: (isPassword || rightComponent) ? "90%" : "100%" }, inputStyle]} onChangeText={onChangeText} />
                     {isPassword &&
                         <TouchableOpacity
                             onPress={() => setIsShow(!isShow)}

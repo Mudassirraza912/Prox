@@ -19,6 +19,7 @@ function BottomTabs() {
           activeTintColor: "#FFBE00",
           inactiveTintColor: "#D3D8DF"
       }}
+      initialRouteName="Home"
     >
       <Tab.Screen
         name="Home"

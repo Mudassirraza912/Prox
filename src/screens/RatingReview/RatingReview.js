@@ -30,7 +30,7 @@ export const RatingReview = ({navigation}) => {
                     }
                 }
             ]} />
-            <Header centerText="Rate" />
+            <Header centerText="Rate" leftButtonPress={() => navigation.navigate('Home')} />
             <ScrollView>
                 <View style={styles.blockContainer}>
                     <Text style={[fontStyles.ProximaSemiBold, {color: DEFAULT_THEME_COLOR, marginVertical: 15, textAlign: 'center'}]}>Give us Rating!</Text>
@@ -65,12 +65,12 @@ export const RatingReview = ({navigation}) => {
                         <Text style={[fontStyles.ProximaSemiBold, {marginVertical: 15, textAlign: 'center'}]}>Leave Comment</Text>
                     </View>
                     <View>
-                        <Input numberOfLines={10} multiline={true} label="" placeholder="Write a message" />
+                        <Input numberOfLines={10} multiline={true} label="" placeholder="Write a message" inputStyle={{height: 100}} />
                     </View>
                 </View>
             </ScrollView>
 
-            <View style={[styles.blockContainer, {position: 'absolute', bottom: 0, width: '100%'}]}>
+            <View style={[styles.blockContainer, {position: 'absolute', bottom: 10, width: '100%'}]}>
                 <Button 
                     onPress={() => setShow(true)}
                     title="Submit" 

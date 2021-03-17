@@ -41,7 +41,8 @@ const Settings = ({ navigation }) => {
             lefIconSize: 25,
              containerStyle: {
                 paddingVertical: 20
-            }   
+            },
+            onPress: () => navigation.navigate('NotificationSetting')   
         },
         {
             title: "Contact Us",
@@ -51,7 +52,8 @@ const Settings = ({ navigation }) => {
             lefIconSize: 25,
              containerStyle: {
                 paddingVertical: 20
-            }   
+            },
+            onPress: () => navigation.navigate('ContactUs')   
         },
         {
             title: "Privacy Policy",

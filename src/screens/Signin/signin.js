@@ -4,6 +4,7 @@ import Button from '../../components/Button'
 import { HorizontalCards } from '../../components/Cards/HorizontalCards'
 import { PopularResturantsCard } from '../../components/Cards/PopularResturantCards'
 import Input from '../../components/Input'
+import { NotificationSettingList } from '../../components/List/notificationSettingList'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
 
