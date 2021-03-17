@@ -23,6 +23,7 @@ import { ContactUs } from '../screens/ContactUs/contactUs'
 import { NotificationSetting } from '../screens/Notification/NotificationSetting'
 import { PaymentCard } from '../screens/PaymentCard/paymentCards'
 import { CardDetail } from '../screens/PaymentCard/cardDetail'
+import Profile from '../screens/Profile/Profile.screen'
 
 const Stack = createStackNavigator()
 
@@ -47,6 +48,7 @@ const MainNavigation = () => {
         <Stack.Screen name="RatingReview" component={RatingReview} />
         <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
         <Stack.Screen name="TermsAndConditions" component={TermsAndConditions} />
+        <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="ContactUs" component={ContactUs} />
         <Stack.Screen name="NotificationSetting" component={NotificationSetting} />
         <Stack.Screen name="PaymentCard" component={PaymentCard} />

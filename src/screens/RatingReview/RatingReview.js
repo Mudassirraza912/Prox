@@ -30,7 +30,7 @@ export const RatingReview = ({navigation}) => {
                     },
                 }
             ]} />
-            <Header centerText="Rate" leftButtonPress={() => navigation.navigate('Home')} />
+            <Header centerText="Rate" leftButtonPress={navigation.goBack} />
             <ScrollView>
                 <View style={styles.blockContainer}>
                     <Text style={[fontStyles.ProximaSemiBold, {color: DEFAULT_THEME_COLOR, marginVertical: 15, textAlign: 'center'}]}>Give us Rating!</Text>
@@ -70,7 +70,7 @@ export const RatingReview = ({navigation}) => {
                 </View>
             </ScrollView>
 
-            <View style={[styles.blockContainer, {position: 'absolute', bottom: 10, width: '100%'}]}>
+            <View style={[styles.blockContainer, {position: 'absolute', bottom: 20, width: '100%'}]}>
                 <Button 
                     onPress={() => setShow(true)}
                     title="Submit" 

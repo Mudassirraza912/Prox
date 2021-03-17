@@ -53,7 +53,7 @@ function BottomTabs() {
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="Settings"
         component={Settings}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
