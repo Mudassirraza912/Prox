@@ -1,6 +1,4 @@
 import React from 'react'
-import Home from '../screens/Home/Home.screen'
-import Profile from '../screens/Profile/Profile.screen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -13,7 +11,6 @@ import ChangePassword from '../screens/ForgotPassword/changePassword'
 import SignUp from '../screens/SignUp/signup'
 import EnableLocation from '../screens/ServicesPermission/enableLocation'
 import BottomTabs from './bottomNavigation'
-import { stopClock } from 'react-native-reanimated'
 import Selectlocation from '../screens/ServicesPermission/selectLocation'
 import SearchScreen from '../screens/Search/Search.screen'
 import GooglePlacesInput from '../components/Map/LocationSearch'
@@ -24,6 +21,8 @@ import PrivacyPolicy from '../screens/PrivacyPolicy'
 import TermsAndConditions from '../screens/TermAndConditions'
 import { ContactUs } from '../screens/ContactUs/contactUs'
 import { NotificationSetting } from '../screens/Notification/NotificationSetting'
+import { PaymentCard } from '../screens/PaymentCard/paymentCards'
+import { CardDetail } from '../screens/PaymentCard/cardDetail'
 
 const Stack = createStackNavigator()
 
@@ -50,6 +49,8 @@ const MainNavigation = () => {
         <Stack.Screen name="TermsAndConditions" component={TermsAndConditions} />
         <Stack.Screen name="ContactUs" component={ContactUs} />
         <Stack.Screen name="NotificationSetting" component={NotificationSetting} />
+        <Stack.Screen name="PaymentCard" component={PaymentCard} />
+        <Stack.Screen name="CardDetail" component={CardDetail} />
 
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}

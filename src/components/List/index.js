@@ -1,6 +1,6 @@
 import { Thumbnail } from 'native-base'
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { fontStyles } from '../../constants/fontStyles'
 
 // const profileImage = require("../../assets/images/profile.png")
@@ -23,21 +23,33 @@ const List = ({
     titleStyle = {},
     subTitleStyle = {},
     containerStyle = {},
-    onPress = () => { }
+    onPress = () => { },
+    image = "",
+    defaultKey = false,
+    divider = false
 }) => {
     return (
+        <>
         <TouchableOpacity onPress={onPress} activeOpacity={0.7} style={[styles.mainContainer, containerStyle]}>
             {avatar && <View>
                 {typeof avatarImage == "string" ? <View style={styles.avatarTitleContainer}>
                     <Text style={[fontStyles.ProximaBoldH1, styles.avatarText]}>{avatarText}</Text>
-                </View> : <Thumbnail source={avatarImage} />}
+                </View> : <Thumbnail  circular={false} source={avatarImage} />}
             </View>}
+            {image ? <Image source={image} /> : null}
             {leftIcon && <View>
                 <Ionicons name={leftIconName} size={lefIconSize} color={leftIconColor} />
             </View>}
 
             <View style={styles.centerComponentContainer}>
-                <Text style={[fontStyles.ProximaSemiBold, styles.nameText, titleStyle]}>{title}</Text>
+                {defaultKey ? 
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={[fontStyles.ProximaSemiBold, styles.nameText, titleStyle]}>{title}</Text>
+                        <Text style={[fontStyles.ProximaSemiBold, styles.nameText, {left: 10}]}>default</Text>
+                    </View> 
+                :
+                    <Text style={[fontStyles.ProximaSemiBold, styles.nameText, titleStyle]}>{title}</Text>
+                }
                 {subtitle ? <Text style={[fontStyles.ProximaRegularP2, styles.subtitleText, subTitleStyle]}>{subtitle}</Text> : null}
             </View>
 
@@ -46,8 +58,9 @@ const List = ({
                 <Ionicons name={rightIconName} size={25} color={"#D3D8DF"} />
 
             </View>}
-
         </TouchableOpacity>
+        {divider && <View style={styles.dividerStyle} />}
+        </>
     )
 }
 
@@ -79,6 +92,11 @@ const styles = StyleSheet.create({
         color: "#6905DB"
     },
     subtitleText: {
-        color: "#6A7C92"
+        color: "#6A7C92",
+        marginVertical: 3
+    },
+    dividerStyle: {
+        backgroundColor: '#F1F2FA',
+        height: 1,
     }
 })

@@ -27,7 +27,7 @@ export const RatingReview = ({navigation}) => {
                     onPress: () => {
                         navigation.navigate('Home')
                         setShow(false)
-                    }
+                    },
                 }
             ]} />
             <Header centerText="Rate" leftButtonPress={() => navigation.navigate('Home')} />

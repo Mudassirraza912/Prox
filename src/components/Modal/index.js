@@ -19,6 +19,7 @@ const CustomModal = ({
     descriptionStyle = {},
     onPress = () => { },
     successIcon = true,
+    btnHorizontal=false,
     buttons = [
         {
             title: "Close",
@@ -68,6 +69,7 @@ const CustomModal = ({
 
                 <View style={{ width: "100%", marginTop: 20 }}>
                     <FlatList 
+                      numColumns={btnHorizontal ? 2 : 0}
                       data={buttons}
                       renderItem={({item, index}) => <Button {...item} /> }
                     />
