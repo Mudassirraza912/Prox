@@ -23,7 +23,8 @@ const Input = ({
     numberOfLines = 1,
     multiline = false,
     value = '',
-    changeNumberButton = false
+    changeNumberButton = false,
+    inputStyle = {}
 }) => {
 
     // console.log("keyboardType", keyboardType)

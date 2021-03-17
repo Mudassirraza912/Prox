@@ -27,7 +27,7 @@ export const RatingReview = ({navigation}) => {
                     onPress: () => {
                         navigation.navigate('Home')
                         setShow(false)
-                    }
+                    },
                 }
             ]} />
             <Header centerText="Rate" leftButtonPress={navigation.goBack} />
@@ -65,7 +65,7 @@ export const RatingReview = ({navigation}) => {
                         <Text style={[fontStyles.ProximaSemiBold, {marginVertical: 15, textAlign: 'center'}]}>Leave Comment</Text>
                     </View>
                     <View>
-                        <Input numberOfLines={10} multiline={true} label="" placeholder="Write a message" />
+                        <Input numberOfLines={10} multiline={true} label="" placeholder="Write a message" inputStyle={{height: 100}} />
                     </View>
                 </View>
             </ScrollView>

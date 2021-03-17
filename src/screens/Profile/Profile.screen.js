@@ -20,7 +20,7 @@ import Input from '../../components/Input'
 import Button from '../../components/Button'
 import ImageCropPicker from 'react-native-image-crop-picker'
 
-const Home = ({ navigation }) => {
+const Profile = ({ navigation }) => {
 
   const [image, setImage] = useState("RD")
 
@@ -106,7 +106,7 @@ const Home = ({ navigation }) => {
   )
 }
 
-export default Home
+export default Profile
 
 const styles = StyleSheet.create({
   imageContainer: {
