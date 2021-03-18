@@ -5,16 +5,20 @@ import Input from '../../components/Input'
 import CustomModal from '../../components/Modal'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
-
-const ChangePassword = ({navigation}) => {
+import Header from '../../components/Header'
+const ChangePassword = ({navigation, route}) => {
+    const { from } = route.params
     const [modal, setmodal] = useState(false)
     return(
         <View style={styles.mainContainer}>
             <CustomModal 
                 modalVisibel={modal}
                 setModalVisible={(a) => setmodal(a)}
-                title={"Password changed"}
-                discription="You may now continue using POPPINS with your new password"
+                title={from !== "forgot" ? "Password Updated" : "Password changed"}
+                discription={from !== "forgot" ? 
+                    "You may now continue using Prox with your new password"
+                     : 
+                    "You may now continue using POPPINS with your new password"}
                 buttons={[
                     {
                         title: "Close",
@@ -25,17 +29,29 @@ const ChangePassword = ({navigation}) => {
                         backgroundColor: DEFAULT_THEME_COLOR,
                         onPress: () => { 
                             setmodal(!modal) 
-                            navigation.navigate("SignIn")
+                            {from !== "forgot" ? 
+                            navigation.navigate("Home") 
+                            : 
+                            navigation.navigate("SignIn")}
                         },
                         textColor: "#fff"
                     }
                 ]}
                 />
+           {from !== "forgot" && <Header leftIcon={false} centerText="Change Password"/>}
+
+           {from !== "forgot" && 
+            <View style={styles.blockContainer}>
+                <Text style={[fontStyles.ProximaRegularP1, {color: '#6A7C92', textAlign: 'center', marginVertical: 10}]}>
+                    We partner with Stripe to ensure that your credit card details are kept safe and secure. Prox will not have access to your credit card info
+                </Text>
+            </View>}
+           {from == "forgot" &&
             <View style={[styles.blockContainer, {marginTop: Platform.OS == "android" ? 0 : 50}]}>
                 <View style={styles.itemContainer}>
                     <Text style={fontStyles.ProximaBoldH1}>Choose a New Password</Text>
                 </View>
-            </View>
+            </View>}
 
             <View style={[styles.blockContainer, {marginTop: 30}]}>
                 <Input label="New Password" isPassword/>
