@@ -7,14 +7,15 @@ import Input from '../../components/Input'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
 
-const VerificationOTP = ({navigation}) => {
-
+const VerificationOTP = ({navigation, route}) => {
+    const { from } = route.params
 
     return(
         <View style={styles.mainContainer}>
             <View style={[styles.blockContainer, {marginTop: Platform.OS == "android" ? 0 : 50}]}>
                 <View style={styles.itemContainer}>
-                    <Text style={fontStyles.ProximaBoldH1}>Verification</Text>
+                    <Text style={fontStyles.ProximaBoldH1}>{(from && from == "changePassword") ?  "Change Password" : "Verification"
+                    }</Text>
                 </View>
                 <View style={[styles.itemContainer]}>
                     <Text style={[fontStyles.ProximaRegularP2, {color: "#6A7C92"}]}>
@@ -44,7 +45,13 @@ const VerificationOTP = ({navigation}) => {
             </View>
 
             <View style={[styles.blockContainer, { marginTop: 30}]}>
-                <Button onPress={() => {navigation.navigate("ChangePassword")}} title="Continue" titleStyle={fontStyles.ProximaSemiBold} />
+                <Button 
+                onPress={() => {
+                     navigation.navigate("ChangePassword", {from: from})
+                    }
+                } 
+                title="Continue" 
+                titleStyle={fontStyles.ProximaSemiBold} />
             </View>
 
         </View>

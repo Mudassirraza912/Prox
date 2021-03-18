@@ -52,21 +52,21 @@ const EnableLocation = ({navigation}) => {
                         <Image source={store} />
                     </View>
 
-                    <View style={styles.blockContainer}>
+                    <View style={[styles.blockContainer, {top: 40}]}>
                         <Button 
                             onPress={() => setIshow(!show)}
                             title="Allow Location Access" 
                             titleStyle={fontStyles.ProximaSemiBold} 
                         />
                     </View>
-                    <View style={styles.blockContainer}>
+                    {/* <View style={styles.blockContainer}>
                         <Button
                             onPress={() => {navigation.navigate('Selectlocation')}}
                             title={"Enter Source Address"}
                             lightTheme
                             titleStyle={[fontStyles.ProximaSemiBold]}
                         />
-                    </View>
+                    </View> */}
                 </View>
             </ScrollView>
         </View>

@@ -28,7 +28,7 @@ const ForgotPassword = ({navigation}) => {
 
             <View style={[styles.blockContainer, { marginTop: 30}]}>
                 <Button onPress={() => {
-                    navigation.navigate("VerificationOTP")
+                    navigation.navigate("VerificationOTP", {from: 'forgot'})
                 }} title="Submit" titleStyle={fontStyles.ProximaSemiBold} />
             </View>
 
