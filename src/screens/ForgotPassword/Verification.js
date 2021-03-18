@@ -10,15 +10,16 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import CustomModal from '../../components/Modal'
 import { useState } from 'react'
 
+
 const VerificationOTP = ({ navigation, route }) => {
     const [emailChangeModal, setEmailChangeModal] = useState(false)
-
+    const { from } = route.params
 
     const handleContinue = () => {
         if (route?.params?.from == "change_email") {
             setEmailChangeModal(true)
         } else {
-            navigation.navigate("ChangePassword")
+            navigation.navigate("ChangePassword", { from: from })
         }
     }
 
@@ -46,7 +47,8 @@ const VerificationOTP = ({ navigation, route }) => {
                 </TouchableOpacity>}
 
                 <View style={[styles.itemContainer, { marginTop: 10 }]}>
-                    <Text style={fontStyles.ProximaBoldH1}>Verification</Text>
+                    <Text style={fontStyles.ProximaBoldH1}>{(from && from == "changePassword") ? "Change Password" : "Verification"
+                    }</Text>
                 </View>
                 <View style={[styles.itemContainer]}>
                     <Text style={[fontStyles.ProximaRegularP2, { color: "#6A7C92" }]}>
@@ -77,8 +79,17 @@ const VerificationOTP = ({ navigation, route }) => {
 
             <View style={[styles.blockContainer, { marginTop: 30 }]}>
                 <Button onPress={handleContinue} title="Continue" titleStyle={fontStyles.ProximaSemiBold} />
-            </View>
+                {/* <View style={[styles.blockContainer, { marginTop: 30 }]}>
+                    <Button
+                        onPress={() => {
+                            
+                        }
+                        }
+                        title="Continue"
+                        titleStyle={fontStyles.ProximaSemiBold} />
+                </View> */}
 
+            </View>
         </View>
     )
 }

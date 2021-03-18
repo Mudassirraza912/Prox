@@ -4,7 +4,7 @@ import Button from '../../components/Button'
 import Header from '../../components/Header'
 import List from '../../components/List'
 import { fontStyles } from '../../constants/fontStyles'
-
+import { EmptyCard } from './emptyCard'
 const visa = require('../../assets/images/visa.png')
 export const PaymentCard = ({
     navigation,
@@ -45,8 +45,14 @@ export const PaymentCard = ({
                             />
                 }}
             />
+            {/* <EmptyCard /> */}
 
-            <Button title="Add New Credit / Debit Card" titleStyle={fontStyles.ProximaSemiBold} containerStyle={{ position: 'absolute', bottom: 40}} />
+            <Button 
+                onPress={() => navigation.navigate('AddCard')}
+                title="Add New Credit / Debit Card" 
+                titleStyle={fontStyles.ProximaSemiBold} 
+                containerStyle={{ position: 'absolute', bottom: 40}} 
+            />
         </View>
     )
 }

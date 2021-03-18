@@ -34,7 +34,7 @@ const Settings = ({ navigation }) => {
             containerStyle: {
                 paddingVertical: 20
             },
-            // onPress: () => navigation.navigate("ChangePassword")
+            onPress: () => navigation.navigate("VerificationOTP", {from: 'changePassword'})
         },
         {
             title: "Notifications Settings",
