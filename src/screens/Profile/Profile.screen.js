@@ -19,6 +19,9 @@ import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import ImageCropPicker from 'react-native-image-crop-picker'
+import OptionsMenu from "react-native-option-menu";
+
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const Profile = ({ navigation }) => {
 
@@ -37,6 +40,23 @@ const Profile = ({ navigation }) => {
       })
     } catch (error) {
 
+    }
+
+  }
+
+  const openCamera = async () => {
+    try {
+      let image = await ImageCropPicker.openCamera({
+        // multiple: false
+      })
+      console.log(image)
+      setImage({
+        name: image.filename,
+        uri: image.path,
+        type: image.mime
+      })
+    } catch (error) {
+      console.log(error)
     }
 
   }
@@ -61,9 +81,17 @@ const Profile = ({ navigation }) => {
                 </View>
               }
 
-              <TouchableOpacity onPress={openImageLibrary} activeOpacity={0.7} style={{ marginTop: 10 }}>
+              {/* <TouchableOpacity onPress={() => {
+
+              }} activeOpacity={0.7} style={{ marginTop: 10 }}>
                 <Text style={[fontStyles.ProximaRegularP1, styles.imageChangText]}>Tap to change</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
+
+              <OptionsMenu
+                color={DEFAULT_THEME_COLOR}
+                customButton={<Text style={[fontStyles.ProximaRegularP1, styles.imageChangText]}>Tap to change</Text>}
+                options={["Choose from photos", "Open Camera", "Cancel"]}
+                actions={[openImageLibrary, openCamera]} />
             </View>
 
             <View>
@@ -74,20 +102,27 @@ const Profile = ({ navigation }) => {
                   value={"Robert Davidson"}
                 />
               </View>
-              <View style={styles.blockContainer}>
+              {/* <View style={styles.blockContainer}>
                 <Input
                   label="Mobile Number"
                   keyboardType="default"
                   type="phoneInput"
                   value={"2025550110"}
                   changeNumberButton
+                  changeNumberButtonPress={() => navigation.navigate("ChangeNumber")}
                 />
-              </View>
+              </View> */}
               <View style={styles.blockContainer}>
                 <Input
                   label="Email Address"
                   keyboardType="default"
                   value={"robertdavidson23@gmail.com"}
+                  rightComponent
+                  renderRightComponent={() => (
+                    <TouchableOpacity onPress={() => navigation.navigate("ChangeNumber")} style={{ right: 30, top: 5 }}>
+                      <Text style={[fontStyles.ProximaSemiBoldSmall, { color: DEFAULT_THEME_COLOR }]}>CHANGE</Text>
+                    </TouchableOpacity>
+                  )}
                 />
               </View>
 
@@ -127,7 +162,10 @@ const styles = StyleSheet.create({
     color: "#fff"
   },
   imageChangText: {
-    color: DEFAULT_THEME_COLOR
+    color: DEFAULT_THEME_COLOR,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
+    marginTop: 10
   },
   blockContainer: {
     paddingVertical: 5,

@@ -23,8 +23,9 @@ const Input = ({
     numberOfLines = 1,
     multiline = false,
     value = '',
-    changeNumberButton = false,
-    inputStyle = {}
+    changeButton = false,
+    inputStyle = {},
+    changeButtonPress = () => { }
 }) => {
 
     // console.log("keyboardType", keyboardType)
@@ -42,7 +43,7 @@ const Input = ({
                         defaultCountry="US"
                         value={value}
                     />
-                    {changeNumberButton && <TouchableOpacity style={{ position: "absolute", right: 20, top: "35%" }}>
+                    {changeButton && <TouchableOpacity onPress={changeButtonPress} style={{ position: "absolute", right: 20, top: "35%" }}>
                         <Text style={[fontStyles.ProximaSemiBoldSmall, { color: DEFAULT_THEME_COLOR }]}>CHANGE</Text>
                     </TouchableOpacity>}
                 </View>
