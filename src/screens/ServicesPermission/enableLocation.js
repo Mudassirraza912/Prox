@@ -48,11 +48,11 @@ const EnableLocation = ({navigation}) => {
                         </View>
                     </View>
 
-                    <View style={[styles.blockContainer, {marginVertical: 130, alignSelf:'center'}]}>
+                    <View style={[styles.blockContainer, {marginVertical: Platform.OS == "ios" ? 130 : 100, alignSelf:'center'}]}>
                         <Image source={store} />
                     </View>
 
-                    <View style={[styles.blockContainer, {top: 40}]}>
+                    <View style={[styles.blockContainer]}>
                         <Button 
                             onPress={() => setIshow(!show)}
                             title="Allow Location Access" 
