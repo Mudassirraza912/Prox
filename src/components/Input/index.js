@@ -56,7 +56,7 @@ const Input = ({
             <View>
                 <Text style={[styles.defaulLableStyle, labelStyle, fontStyles.ProximaRegularP2,{}]}>{label}</Text>
                 <View style={{ ...styles.defaulContainerStyle, ...containerStyle }}>
-                    <TextInput multiline={multiline} value={value} numberOfLines={numberOfLines} multiline={true} placeholder={placeholder} keyboardType={keyboardType} secureTextEntry={isPassword && isShow} style={{ width: (isPassword || rightComponent) ? "90%" : "100%" }} onChangeText={onChangeText} />
+                    <TextInput multiline={multiline} value={value} numberOfLines={numberOfLines} multiline={true} placeholder={placeholder}  secureTextEntry={isPassword && isShow} style={{ width: (isPassword || rightComponent) ? "90%" : "100%" }} onChangeText={onChangeText} />
                     {isPassword &&
                         <TouchableOpacity
                             onPress={() => setIsShow(!isShow)}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Platform, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { FeedbackCard } from '../../components/Cards/FeedbackCard'
 import Header from '../../components/Header'
 
@@ -25,6 +25,7 @@ export default StoreFeedback
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#F1F2FA"
+        backgroundColor: "#F1F2FA",
+        marginTop : Platform.OS == "ios" ? 0 : 20
     }
 })

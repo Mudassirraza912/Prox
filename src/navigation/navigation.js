@@ -25,8 +25,8 @@ import { PaymentCard } from '../screens/PaymentCard/paymentCards'
 import { CardDetail } from '../screens/PaymentCard/cardDetail'
 import Profile from '../screens/Profile/Profile.screen'
 import ChangeNumber from '../screens/ChangeNumber'
-
 import { AddCard } from '../screens/PaymentCard/addCard'
+import StoreFeedback from '../screens/StoreFeedback'
 const Stack = createStackNavigator()
 
 
@@ -57,6 +57,8 @@ const MainNavigation = () => {
         <Stack.Screen name="CardDetail" component={CardDetail} />
         <Stack.Screen name="ChangeNumber" component={ChangeNumber} />
         <Stack.Screen name="AddCard" component={AddCard} />
+        <Stack.Screen name="StoreFeedback" component={StoreFeedback} />
+
 
         {/* <Stack.Screen name="Home" component={MyTabs} /> */}
         {/* add your another screen here using -> Stack.Screen */}

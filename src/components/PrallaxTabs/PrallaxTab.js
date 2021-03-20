@@ -144,6 +144,7 @@ export class ParallaxDemo extends Component {
 
                         </Animated.View>
                         <Button
+                          onPress={() => this.props.navigation.navigate("StoreFeedback")}
                           title={"Check Reviews"}
                           backgroundColor={"#FFBE00"}
                           containerStyle={{ width: "30%", borderRadius: 50, height: undefined, paddingVertical: 10 }}
