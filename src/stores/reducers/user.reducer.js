@@ -1,5 +1,5 @@
 const initialState = {
-  users: [],
+  users: null,
   isLoading: false,
   resetPassToken: ''
 }

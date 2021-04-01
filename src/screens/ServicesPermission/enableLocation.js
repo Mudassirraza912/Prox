@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, Platform, ScrollView, TouchableOpacity, Image } from 'react-native'
+import { connect } from 'react-redux'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 import CustomModal from '../../components/Modal'
@@ -9,10 +10,12 @@ import { fontStyles } from '../../constants/fontStyles'
 const store = require('../../assets/images/store.png')
 
 
-const EnableLocation = ({navigation}) => {
+const EnableLocation = ({navigation, users}) => {
 
     const [show, setIshow] = useState(false)
-
+    useEffect(() => {
+        console.log("EnableLocation useEffect users", users)
+    }, [])
     return (
         <View style={styles.mainContainer}>
             <CustomModal 
@@ -97,4 +100,13 @@ const styles = StyleSheet.create({
     }
 
 })
-export default EnableLocation;
+
+const mapStateToProps = (state) => ({
+    users: state.userReducer.users
+})
+
+const mapDispatchToProps = {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EnableLocation);

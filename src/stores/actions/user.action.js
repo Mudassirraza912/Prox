@@ -31,7 +31,6 @@ export const fetchDataUser = () => async dispatch => {
   }
 }
 
-
 export const userRegister = (user) => {
   return async (dispatch) => {
     try {
@@ -60,19 +59,18 @@ export const userRegister = (user) => {
 export const userLogin = (user) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: "USER_LOGIN_PROCESSING" })
+      dispatch({ type: "FETCHING" })
       let { data } = await postApi(`${base_url}/users/login_user`, user)
 
-      console.log("user Registration response", data)
 
       if (data.code == 200) {
-        Alert.alert("Success", "User Login Successfully")
-        dispatch({ type: "USER_LOGIN_PROCESSED" })
+        dispatch({ type: "FETCH_USER_SUCCESS", payload: data })
+        console.log("user userLogin response", data)
         return Promise.resolve({ status: true })
         // NavigationSer.navigate("SignIn")
       } else {
         Alert.alert("error", data.message)
-        dispatch({ type: "USER_LOGIN_PROCESSED" })
+        dispatch({ type: "ERROR" })
         return Promise.resolve({ status: false })
       }
 
