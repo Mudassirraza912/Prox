@@ -23,7 +23,7 @@ import OptionsMenu from "react-native-option-menu";
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-const Profile = ({ navigation }) => {
+const Profile = ({ navigation, userDetails }) => {
 
   const [image, setImage] = useState("RD")
 
@@ -141,7 +141,16 @@ const Profile = ({ navigation }) => {
   )
 }
 
-export default Profile
+const mapStateToProps = (state) => ({
+  userDetails : state.userReducer.user
+})
+
+const mapDispatchToProps = {
+    userLogin
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 const styles = StyleSheet.create({
   imageContainer: {

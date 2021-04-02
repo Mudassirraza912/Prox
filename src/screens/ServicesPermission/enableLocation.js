@@ -10,11 +10,11 @@ import { fontStyles } from '../../constants/fontStyles'
 const store = require('../../assets/images/store.png')
 
 
-const EnableLocation = ({navigation, users}) => {
+const EnableLocation = ({navigation, user}) => {
 
     const [show, setIshow] = useState(false)
     useEffect(() => {
-        console.log("EnableLocation useEffect users", users)
+        console.log("EnableLocation useEffect user", user)
     }, [])
     return (
         <View style={styles.mainContainer}>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => ({
-    users: state.userReducer.users
+    user: state.userReducer.user
 })
 
 const mapDispatchToProps = {
