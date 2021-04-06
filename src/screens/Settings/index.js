@@ -1,15 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
 import { FlatList, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { connect } from 'react-redux'
 import List from '../../components/List'
 import { fontStyles } from '../../constants/fontStyles'
 
-const Settings = ({ navigation }) => {
+const Settings = ({ navigation, userDetails }) => {
 
     const [list] = useState([
         {
-            title: "Robert Davidson",
-            subtitle: "+123 456 7890",
+            title: userDetails.payload.name,
+            subtitle: userDetails.payload.phone,
             avatarText: "RD",
             avatar: true,
             onPress: () => navigation.navigate("Profile")
@@ -128,7 +129,14 @@ const Settings = ({ navigation }) => {
     )
 }
 
-export default Settings
+const mapStateToProps = (state) => ({
+    userDetails : state.userReducer.user
+  })
+  
+  const mapDispatchToProps = {
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Settings);
 
 const styles = StyleSheet.create({
     container: {

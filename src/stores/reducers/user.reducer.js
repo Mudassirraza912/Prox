@@ -1,7 +1,9 @@
 const initialState = {
   user : null,
   isLoading: false,
-  resetPassToken: ''
+  resetPassToken: '',
+  userId: null,
+  authToken: null,
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -16,9 +18,17 @@ export const userReducer = (state = initialState, action) => {
     case 'FETCH_USER_SUCCESS':
       return {
         ...state,
-        users: payload,
+        user: payload,
+        userId: payload.payload.id,
+        authToken: payload.payload.auth_token,
         isLoading: false
       }
+      case 'UPDATED_PROFILE_SUCCESS':
+        return {
+          ...state,
+          user: payload,
+          isLoading: false
+        }
     case 'ERROR':
       return {
         ...state,

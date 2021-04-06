@@ -20,12 +20,22 @@ import Input from '../../components/Input'
 import Button from '../../components/Button'
 import ImageCropPicker from 'react-native-image-crop-picker'
 import OptionsMenu from "react-native-option-menu";
-
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { updateProfile } from '../../stores/actions/user.action'
+import { connect } from 'react-redux'
+import CustomModal from '../../components/Modal'
 
-const Profile = ({ navigation, userDetails }) => {
+const Profile = ({ navigation, userDetails, updateProfile }) => {
 
   const [image, setImage] = useState("RD")
+  const [fullName, setFullName] = useState(userDetails.payload.name)
+  const [phoneNo, setphoneNo] = useState(userDetails.payload.phone)
+  const [userName, setuserName] = useState(userDetails.payload.username)
+  const [email, setemail] = useState(userDetails.payload.email)
+  const [userId, setuserId] = useState(userDetails.payload.id)
+  const [show, setshow] = useState(false)
+
+
 
   const openImageLibrary = async () => {
     try {
@@ -58,13 +68,41 @@ const Profile = ({ navigation, userDetails }) => {
     } catch (error) {
       console.log(error)
     }
-
   }
 
+  const onUpdate = async () => {
+    var index = fullName.indexOf(" ")
+    var obj = {
+      username: userName,
+      first_name: fullName.slice(0, index),
+      last_name: fullName.slice(index, fullName.length),
+      email: email,
+      phone: phoneNo
+    }
+    const { status } = await updateProfile(obj)
+    if (status) {
+      setshow(true)
+    }
+  }
+
+  console.log("phoneNo", phoneNo)
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={'#f9f9f9'} />
-
+      <CustomModal
+                modalVisibel={show} 
+                successIcon 
+                title = "Profile Updated"
+                discription=""
+                buttons={[
+                {
+                    title: "Close",
+                    onPress: () => {
+                        navigation.navigate('Home')
+                        setshow(false)
+                    },
+                }
+            ]} />
       <Header
         centerText="Profile"
         leftIconName="arrow-back"
@@ -95,28 +133,39 @@ const Profile = ({ navigation, userDetails }) => {
             </View>
 
             <View>
+            <View style={styles.blockContainer}>
+                <Input
+                  label="User Name"
+                  keyboardType="default"
+                  value={userName}
+                  onChangeText={(e) => setuserName(e)}
+                />
+              </View>
               <View style={styles.blockContainer}>
                 <Input
                   label="Full Name"
                   keyboardType="default"
-                  value={"Robert Davidson"}
+                  value={fullName}
+                  onChangeText={(e) => setFullName(e)}
                 />
               </View>
-              {/* <View style={styles.blockContainer}>
+              <View style={styles.blockContainer}>
                 <Input
                   label="Mobile Number"
                   keyboardType="default"
                   type="phoneInput"
-                  value={"2025550110"}
-                  changeNumberButton
-                  changeNumberButtonPress={() => navigation.navigate("ChangeNumber")}
+                  value={phoneNo}
+                  onChangeText={(e) => setphoneNo(e.dialCode + e.unmaskedPhoneNumber)}
+                  // changeNumberButton
+                  // changeNumberButtonPress={() => navigation.navigate("ChangeNumber")}
                 />
-              </View> */}
+              </View>
               <View style={styles.blockContainer}>
                 <Input
                   label="Email Address"
                   keyboardType="default"
-                  value={"robertdavidson23@gmail.com"}
+                  value={email}
+                  onChangeText={(e) => setemail(e)}
                   rightComponent
                   renderRightComponent={() => (
                     <TouchableOpacity onPress={() => navigation.navigate("ChangeNumber")} style={{ right: 30, top: 5 }}>
@@ -131,7 +180,7 @@ const Profile = ({ navigation, userDetails }) => {
         </ScrollView>
         <View style={[styles.blockContainer, { position: 'absolute', bottom: 20, width: '100%' }]}>
           <Button
-            // onPress={() => setShow(true)}
+            onPress={() => onUpdate()}
             title="Save"
             titleStyle={fontStyles.ProximaSemiBoldSmall}
           />
@@ -146,8 +195,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    userLogin
-
+  updateProfile
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
