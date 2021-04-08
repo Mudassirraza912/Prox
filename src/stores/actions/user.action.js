@@ -1,7 +1,7 @@
 import { Alert } from 'react-native'
 import { getUser, postApi, getApi } from '../../api/fakeApiUser'
 import base_url from '../../constants/base_url'
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export const fetchUserRequest = () => {
   return {
     type: 'FETCH_USER_REQUEST'
@@ -114,7 +114,7 @@ export const changePass = (obj, authToken) => {
     if(data.code == 200) {
       try {
         dispatch({type: 'FETCHING'})
-        let { data } = await postApi(`${base_url}/users/change_password`, obj)
+        let { data } = await postApi(`${base_url}/users/change_password`, obj, authToken)
         console.log("data changePass", data)
         if (data.code == 200) {
           Alert.alert("Alert", data.message)
@@ -156,5 +156,13 @@ export const updateProfile = (obj) => {
       Alert.alert("error", message)
       return Promise.reject({ status: false, message })
     }
+  }
+}
+
+export const logout = () => {
+  return async function (dispatch) {
+      await AsyncStorage.clear()
+      dispatch({type:  "LOGOUT_REQUEST"})
+      return Promise.resolve({status: true})
   }
 }

@@ -3,14 +3,16 @@ import { useState } from 'react'
 import { FlatList, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux'
 import List from '../../components/List'
+import CustomModal from '../../components/Modal'
 import { fontStyles } from '../../constants/fontStyles'
+import { logout } from '../../stores/actions/user.action'
 
-const Settings = ({ navigation, userDetails }) => {
-
+const Settings = ({ navigation, userDetails, logout }) => {
+    const [show, setIshow] = useState(false)
     const [list] = useState([
         {
-            title: userDetails.payload.name,
-            subtitle: userDetails.payload.phone,
+            title: userDetails?.payload?.name,
+            subtitle: userDetails?.payload?.phone,
             avatarText: "RD",
             avatar: true,
             onPress: () => navigation.navigate("Profile")
@@ -90,12 +92,35 @@ const Settings = ({ navigation, userDetails }) => {
             containerStyle: {
                 paddingVertical: 20
             },
-            // onPress: () => alert()
+            onPress: () => {setIshow(true)}
         },
     ])
 
     return (
         <View style={styles.container}>
+            <CustomModal 
+                modalVisibel={show}
+                title="Logout"
+                successIcon={false}
+                discription="Are you sure you want to logout?"
+                buttons={[
+                    {
+                        title:"Yes",
+                        titleStyle:{...fontStyles.ProximaSemiBold},
+                        onPress: async () => {
+                            setIshow(!show)
+                            await logout()
+                            navigation.navigate('SignIn')
+                        }
+                    },
+                    {
+                        title:"No",
+                        titleStyle:{...fontStyles.ProximaSemiBold, color: "#000"},
+                        onPress: () => setIshow(!show),
+                        backgroundColor:"transparent"
+                    },
+                ]}
+            />
             {/* <SafeAreaView> */}
             <View style={styles.blockContainer}>
                 <Text style={fontStyles.ProximaBoldH1}>
@@ -134,6 +159,7 @@ const mapStateToProps = (state) => ({
   })
   
   const mapDispatchToProps = {
+      logout
   }
   
   export default connect(mapStateToProps, mapDispatchToProps)(Settings);

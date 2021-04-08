@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import Button from '../../components/Button'
 import { fontStyles } from '../../constants/fontStyles'
 const Splash = require('../../assets/images/Splash.png')
-const LandingScreen = ({ navigation, user }) => {
+const LandingScreen = ({ navigation, user, authToken }) => {
 
     useEffect(() => {
-        console.log("Landing Screen useEffect user", user)
-        if(user){
+        console.log("authToken", authToken, "user", user )
+        if(user && authToken){
             navigation.navigate("EnableLocation")
         }
     }, [])
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => ({
-    user: state.userReducer.user
+    user: state.userReducer.user,
+    authToken: state.userReducer.authToken
 })
 
 const mapDispatchToProps = {

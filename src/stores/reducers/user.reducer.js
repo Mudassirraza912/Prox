@@ -40,7 +40,10 @@ export const userReducer = (state = initialState, action) => {
           isLoading: false,
           resetPassToken: payload
         }
-
+    case 'LOGOUT_REQUEST' : 
+      return {
+        state: initialState
+      }
     default:
       return state
   }
