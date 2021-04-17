@@ -1,18 +1,72 @@
 import React from 'react'
-import { View, Text, StyleSheet, Platform, ScrollView, TouchableOpacity } from 'react-native'
+import { useState } from 'react'
+import { View, Text, StyleSheet, Platform, ScrollView, TouchableOpacity, Alert } from 'react-native'
+import { connect } from 'react-redux'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 import { DEFAULT_THEME_COLOR } from '../../constants/colors'
 import { fontStyles } from '../../constants/fontStyles'
+import { userRegister } from '../../stores/actions/user.action'
+import RenderError from '../../utils/renderError'
 
-const SignUp = ({navigation}) => {
+const SignUp = ({ navigation, userRegister }) => {
+    const [firstName, setFirstName] = useState("")
+    const [firstNameError, setFirstNameError] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [lastNameError, setLastNameError] = useState("")
+    const [username, setUsername] = useState("")
+    const [usernameError, setUsernameError] = useState("")
+    const [email, setEmail] = useState("")
+    const [emailError, setEmailError] = useState("")
+    const [password, setPassword] = useState("")
+    const [passwordError, setPasswordError] = useState("")
+
+    const validate = () => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        setFirstNameError(firstName ? "" : "First Name is required")
+        setLastNameError(lastName ? "" : "Last Name is required")
+        setUsernameError(username ? "" : "Username is required")
+        setEmailError(email ? (reg.test(email) ? "" : "Email not formatted") : "Email is required")
+        setPasswordError(password ? "" : "Password is required")
+
+        if (firstName && lastName && username && email && password) {
+            if (reg.test(email)) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+
+    const handleSubmit = async () => {
+        let formStatus = validate()
+
+        if (formStatus) {
+            const user = {
+                "username": username,
+                "first_name": firstName,
+                "last_name": lastName,
+                "password": password,
+                "email": email
+            }
+            userRegister(user)
+
+            // alert("done")
+        } else {
+            // alert("errors")
+            validate()
+        }
+
+    }
 
 
     return (
         <View style={styles.mainContainer}>
             <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
                 <View style={{ flex: 1 }}>
-                    <View style={[styles.blockContainer, {marginTop: Platform.OS == "android" ? 0 : 50}]}>
+                    <View style={[styles.blockContainer, { marginTop: Platform.OS == "android" ? 0 : 50 }]}>
                         <View style={styles.itemContainer}>
                             <Text style={fontStyles.ProximaBoldH1}>Create an account</Text>
                         </View>
@@ -22,27 +76,62 @@ const SignUp = ({navigation}) => {
                     </View>
 
                     <View style={styles.blockContainer}>
-                        <Input label="Full Name" keyboardType="default" />
+                        <Input
+                            label="First Name"
+                            onChangeText={setFirstName}
+                            value={firstName}
+                            keyboardType="default" />
+                        <RenderError errorText={firstNameError} />
                     </View>
                     <View style={styles.blockContainer}>
-                        <Input label="Enter Email" keyboardType="default"/>
+                        <Input
+                            label="Last Name"
+                            onChangeText={setLastName}
+                            value={lastName}
+                            keyboardType="default" />
+                        <RenderError errorText={lastNameError} />
                     </View>
                     <View style={styles.blockContainer}>
-                        <Input label="Password" isPassword keyboardType="default" />
+                        <Input
+                            label="Username"
+                            onChangeText={setUsername}
+                            value={username}
+                            keyboardType="default" />
+                        <RenderError errorText={usernameError} />
+                    </View>
+                    <View style={styles.blockContainer}>
+                        <Input
+                            label="Enter Email"
+                            onChangeText={setEmail}
+                            value={email}
+                            keyboardType="default" />
+                        <RenderError errorText={emailError} />
+                    </View>
+                    <View style={styles.blockContainer}>
+                        <Input
+                            label="Password"
+                            isPassword
+                            onChangeText={setPassword}
+                            value={password}
+                            keyboardType="default" />
+                        <RenderError errorText={passwordError} />
                     </View>
 
-            <View style={styles.blockContainer}>
-                <Button onPress={() => navigation.navigate("ForgotPassword")} title="Forgot Password?" titleStyle={[fontStyles.ProximaRegularP2, {color:'#000'}]} backgroundColor="transparent" />
-            </View>
+                    <View style={styles.blockContainer}>
+                        <Button onPress={() => navigation.navigate("ForgotPassword")} title="Forgot Password?" titleStyle={[fontStyles.ProximaRegularP2, { color: '#000' }]} backgroundColor="transparent" />
+                    </View>
 
                     <View style={styles.blockContainer}>
-                        <Button title="Sign up" titleStyle={fontStyles.ProximaSemiBold} />
+                        <Button
+                            title="Sign up"
+                            titleStyle={fontStyles.ProximaSemiBold}
+                            onPress={handleSubmit} />
                     </View>
 
                     <View style={styles.signUpText}>
                         <Text style={fontStyles.ProximaRegularP1}>Have an account?</Text>
                         <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
-                            <Text style={[fontStyles.ProximaRegularP1, { color: DEFAULT_THEME_COLOR}]}> Sign in</Text>
+                            <Text style={[fontStyles.ProximaRegularP1, { color: DEFAULT_THEME_COLOR }]}> Sign in</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -50,13 +139,13 @@ const SignUp = ({navigation}) => {
                         <Button
                             onPress={() => { }}
                             title={"Connect with Facebook"}
-                            titleStyle={[fontStyles.ProximaSemiBold, {  }]}  
+                            titleStyle={[fontStyles.ProximaSemiBold, {}]}
                             type="facebook"
                         />
                     </View>
                     <View style={styles.blockContainer}>
                         <Button
-                            onPress={() => {}}
+                            onPress={() => { }}
                             title={"Connect with Google"}
                             titleStyle={[fontStyles.ProximaSemiBold]}
                             type={"google"}
@@ -92,4 +181,13 @@ const styles = StyleSheet.create({
     }
 
 })
-export default SignUp;
+
+const mapStateToProps = (state) => ({
+
+})
+
+const mapDispatchToProps = {
+    userRegister
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
