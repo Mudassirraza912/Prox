@@ -44,17 +44,20 @@ export const AddCard = ({
                         <Input label="Card Holder Name" onChangeText={(e) => setHolderName(e)} value={holderName}/>
                     </View>
                     <View style={styles.blockContainer}>
-                        <Input label="Card Number" keyboardType="phone-pad"/>
+                        <Input 
+                            label="Card Number" 
+                            keyboardType='numeric'
+                        />
                     </View>
                     <View style={[styles.blockContainer, styles.rowSpaceBtw]}>
                         <Input 
                             label="Exp. Date" 
-                            keyboardType="phone-pad" 
+                            keyboardType='numeric' 
                             containerStyle={{width: '68%', right: 40}}
                         />
                         <Input 
                             label="CVV" 
-                            keyboardType="phone-pad" 
+                            keyboardType='numeric' 
                             labelStyle={{right: 40}}
                             containerStyle={{width: '68%', right: 80}}
                         />
