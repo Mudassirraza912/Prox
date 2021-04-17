@@ -51,7 +51,10 @@ const SignUp = ({ navigation, userRegister }) => {
                 "password": password,
                 "email": email
             }
-            userRegister(user)
+            let { status } = await userRegister(user)
+            if(status) {
+                navigation.navigate("SignIn")
+            }
 
             // alert("done")
         } else {

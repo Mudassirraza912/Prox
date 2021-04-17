@@ -34,22 +34,53 @@ export const fetchDataUser = () => async dispatch => {
 
 export const userRegister = (user) => {
   return async (dispatch) => {
-    dispatch({ type: "USER_REGISTER_PROCESSING" })
     try {
+      dispatch({ type: "USER_REGISTER_PROCESSING" })
       let { data } = await postApi(`${base_url}/users/create_user`, user)
 
       console.log("user Registration response", data)
 
       if (data.code == 200) {
         Alert.alert("Success", "User Registerd Successfully")
+        return Promise.resolve({ status: true })
         // NavigationSer.navigate("SignIn")
       } else {
         Alert.alert("error", data.message)
+        return Promise.resolve({ status: false })
       }
 
 
     } catch ({ message }) {
       console.log("registration Error", message)
+      return Promise.reject({ status: false, message })
+    }
+  }
+}
+
+export const userLogin = (user) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: "USER_LOGIN_PROCESSING" })
+      let { data } = await postApi(`${base_url}/users/login_user`, user)
+
+      console.log("user Registration response", data)
+
+      if (data.code == 200) {
+        Alert.alert("Success", "User Login Successfully")
+        dispatch({ type: "USER_LOGIN_PROCESSED" })
+        return Promise.resolve({ status: true })
+        // NavigationSer.navigate("SignIn")
+      } else {
+        Alert.alert("error", data.message)
+        dispatch({ type: "USER_LOGIN_PROCESSED" })
+        return Promise.resolve({ status: false })
+      }
+
+
+    } catch ({ message }) {
+      console.log("registration Error", message)
+      dispatch({ type: "CLEAR_PROCESSING" })
+      return Promise.reject({ status: false, message })
     }
   }
 }
