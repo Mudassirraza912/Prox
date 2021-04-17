@@ -123,7 +123,7 @@ export class ParallaxDemo extends Component {
 
           <Tabs
             prerenderingSiblingsNumber={0}
-            tabBarBackgroundColor="trnsparent"
+            tabBarBackgroundColor="transparent"
             onChangeTab={({ i }) => {
               this.setState({ height: this.heights[i], activeTab: i })
             }}
