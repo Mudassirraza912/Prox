@@ -1,5 +1,5 @@
 import { Alert } from 'react-native'
-import { getUser, postApi } from '../../api/fakeApiUser'
+import { getUser, postApi, getApi } from '../../api/fakeApiUser'
 import base_url from '../../constants/base_url'
 
 export const fetchUserRequest = () => {
@@ -82,5 +82,59 @@ export const userLogin = (user) => {
       dispatch({ type: "CLEAR_PROCESSING" })
       return Promise.reject({ status: false, message })
     }
+  }
+}
+
+export const forgetPass = (obj) => {
+  return async (dispatch) => {
+    try {
+      dispatch({type: 'FETCHING'})
+      let { data } = await postApi(`${base_url}/users/forgot_password`, obj)
+      const {payload} = data
+      if (data.code == 200) {
+        payload.email = obj.email
+        dispatch({ type: "FETCHED_RESET_PASS_TOKEN", payload: payload })
+        return Promise.resolve({ status: true })
+      } else {
+        Alert.alert("error", data.message)
+        dispatch({ type: "ERROR" })
+        return Promise.resolve({ status: false })
+      }
+    } catch ({message}) {
+      dispatch({ type: "ERROR" })
+      Alert.alert("error", message)
+      return Promise.reject({ status: false, message })
+    }
+  }
+}
+
+export const changePass = (obj, authToken) => {
+  return async (dispatch) => {
+    let {data} = await getApi(`${base_url}/users/validate_reset_pw_token/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwX3RpbWUiOjE2MTg5NTA4NDQuMTYwMjA5fQ.hMg13z0RilBViJiGjv8jl3y3lwG9DXFdtCSISv0qEbY`, authToken)
+    console.log("isValid validate_reset_pw_token", data,)
+    
+    if(data.code == 200) {
+      try {
+        dispatch({type: 'FETCHING'})
+        let { data } = await postApi(`${base_url}/users/change_password`, obj)
+        console.log("data changePass", data)
+        if (data.code == 200) {
+          Alert.alert("Alert", data.message)
+          return Promise.resolve({ status: true })
+        } else {
+          Alert.alert("Error", data.message)
+          dispatch({ type: "ERROR" })
+          return Promise.resolve({ status: false })
+        }
+      } catch ({message}) {
+        dispatch({ type: "ERROR" })
+        Alert.alert("error", message)
+        return Promise.reject({ status: false, message })
+      }
+    }else {
+      Alert.alert("Error", data.message)
+      return Promise.reject({ status: false })
+    }
+    
   }
 }
