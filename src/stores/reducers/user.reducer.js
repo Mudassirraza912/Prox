@@ -1,12 +1,13 @@
 const initialState = {
   users: [],
-  isLoading: false
+  isLoading: false,
+  resetPassToken: ''
 }
 
 export const userReducer = (state = initialState, action) => {
   const { payload } = action
   switch (action.type) {
-    case 'FETCH_USER_REQUEST':
+    case 'FETCHING':
       return {
         ...state,
         isLoading: true
@@ -18,11 +19,17 @@ export const userReducer = (state = initialState, action) => {
         users: payload,
         isLoading: false
       }
-    case 'FETCH_USER_FAILED':
+    case 'ERROR':
       return {
         ...state,
         isLoading: false
       }
+    case 'FETCHED_RESET_PASS_TOKEN':
+        return {
+          ...state,
+          isLoading: false,
+          resetPassToken: payload
+        }
 
     default:
       return state

@@ -19,7 +19,6 @@ export const getUser = () => {
 
 
 export const getApi = async (url, data) => {
-  console.log(url, data)
   try {
     let response = await axios.get(url + data)
     console.log(response, "response")
