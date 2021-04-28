@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 })
 const mapStateToProps = state => {
   return {
-    user: state.userReducer.users
+    user: state.userReducer.user
   }
 }
 

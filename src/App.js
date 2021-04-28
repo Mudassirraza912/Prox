@@ -2,8 +2,9 @@ import 'react-native-gesture-handler'
 import React from 'react'
 import MainNavigation from './navigation/navigation'
 import { Provider } from 'react-redux'
-import { store } from './stores'
+import { store, persistore } from './stores'
 import { enableScreens } from 'react-native-screens'
+import { PersistGate } from 'redux-persist/integration/react'
 enableScreens()
 
 const App = () => {
@@ -11,7 +12,9 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <MainNavigation />
+        <PersistGate loading={null} persistor={persistore}>
+          <MainNavigation />
+        </PersistGate>
       </Provider>
     </>
   )

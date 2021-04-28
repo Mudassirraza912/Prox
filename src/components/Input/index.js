@@ -25,7 +25,8 @@ const Input = ({
     value = '',
     changeButton = false,
     inputStyle = {},
-    changeButtonPress = () => { }
+    changeButtonPress = () => { },
+    disabled = false
 }) => {
 
     // console.log("keyboardType", keyboardType)
@@ -42,6 +43,7 @@ const Input = ({
                         onChangeText={onChangeText}
                         defaultCountry="US"
                         value={value}
+
                     />
                     {changeButton && <TouchableOpacity onPress={changeButtonPress} style={{ position: "absolute", right: 20, top: "35%" }}>
                         <Text style={[fontStyles.ProximaSemiBoldSmall, { color: DEFAULT_THEME_COLOR }]}>CHANGE</Text>
@@ -56,7 +58,16 @@ const Input = ({
             <View>
                 <Text style={[styles.defaulLableStyle, labelStyle, fontStyles.ProximaRegularP2,{}]}>{label}</Text>
                 <View style={{ ...styles.defaulContainerStyle, ...containerStyle }}>
-                    <TextInput multiline={multiline} value={value} numberOfLines={numberOfLines} multiline={true} placeholder={placeholder}  secureTextEntry={isPassword && isShow} style={{ width: (isPassword || rightComponent) ? "90%" : "100%" }} onChangeText={onChangeText} />
+                    <TextInput 
+                        multiline={multiline} 
+                        value={value} 
+                        numberOfLines={numberOfLines} 
+                        multiline={true} 
+                        placeholder={placeholder}  
+                        secureTextEntry={isPassword && isShow} 
+                        style={{ width: (isPassword || rightComponent) ? "90%" : "100%" }} 
+                        onChangeText={onChangeText} 
+                    />
                     {isPassword &&
                         <TouchableOpacity
                             onPress={() => setIsShow(!isShow)}

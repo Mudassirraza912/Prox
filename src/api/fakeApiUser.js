@@ -33,13 +33,14 @@ export const getApi = async (url, data) => {
   }
 }
 
-export const postApi = async (url, data) => {
+export const postApi = async (url, data, auth) => {
   console.log(url, data)
   try {
     let response = await axios.post(url, data, {
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        'Authorization': `Bearer ${auth}`, 
       }
     })
     console.log(response, "response")
