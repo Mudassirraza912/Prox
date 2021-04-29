@@ -18,9 +18,14 @@ export const getUser = () => {
 }
 
 
-export const getApi = async (url, data) => {
+export const getApi = async (url, data, token) => {
   try {
-    let response = await axios.get(url + data)
+    let response = await axios.get(url + data, {
+      headers: {
+        "Accept": "application/json",
+        'Authorization': `Bearer ${token}`, 
+      }
+    })
     console.log(response, "response")
     if (response.status == 200) {
       return Promise.resolve({
