@@ -108,7 +108,7 @@ export const forgetPass = (obj) => {
 
 export const changePass = (obj, authToken) => {
   return async (dispatch) => {
-    let {data} = await getApi(`${base_url}/users/validate_reset_pw_token/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwX3RpbWUiOjE2MTg5NTA4NDQuMTYwMjA5fQ.hMg13z0RilBViJiGjv8jl3y3lwG9DXFdtCSISv0qEbY`, authToken)
+    let {data} = await getApi(`${base_url}/users/validate_reset_pw_token/`, authToken , authToken)
     console.log("isValid validate_reset_pw_token", data,)
     
     if(data.code == 200) {
@@ -117,7 +117,7 @@ export const changePass = (obj, authToken) => {
         let { data } = await postApi(`${base_url}/users/change_password`, obj, authToken)
         console.log("data changePass", data)
         if (data.code == 200) {
-          Alert.alert("Alert", data.message)
+          // Alert.alert("Alert", "Password changed successfully")
           return Promise.resolve({ status: true })
         } else {
           Alert.alert("Error", data.message)
