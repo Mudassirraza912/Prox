@@ -33,11 +33,12 @@ const ChangePassword = ({navigation, route, resetPassToken, changePass}) => {
         if (isValidate) {
             var obj = {
                 email: resetPassToken.email,
-                pasword: pass
+                password: pass
             }
-            let { status } = changePass(obj, resetPassToken.token)
+            let { status } = await changePass(obj, resetPassToken.token)
+            console.log("status", status)
             if(status) {
-                setmodal(!modal)
+                setmodal(true)
             }
         }
     }
