@@ -41,6 +41,7 @@ const ChangePassword = ({navigation, route, resetPassToken, changePass}) => {
             }
         }
     }
+    
     return(
         <View style={styles.mainContainer}>
             <CustomModal 
