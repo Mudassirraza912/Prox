@@ -147,7 +147,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     userLogin
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

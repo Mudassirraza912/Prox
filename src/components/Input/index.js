@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Platform } from 'react-native'
 import IntlPhoneInput from 'react-native-intl-phone-input';
 import { fontStyles } from "../../constants/fontStyles";
@@ -32,6 +32,8 @@ const Input = ({
     // console.log("keyboardType", keyboardType)
 
     const [isShow, setIsShow] = useState(true)
+   
+
     const phoneIpnput = () => {
         return (
             <View>
@@ -62,7 +64,6 @@ const Input = ({
                         multiline={multiline} 
                         value={value} 
                         numberOfLines={numberOfLines} 
-                        multiline={true} 
                         placeholder={placeholder}  
                         secureTextEntry={isPassword && isShow} 
                         style={{ width: (isPassword || rightComponent) ? "90%" : "100%" }} 
