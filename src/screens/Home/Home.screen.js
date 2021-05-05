@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react'
+import React, { useState, createRef, useEffect } from 'react'
 import {
   SafeAreaView,
   View,
@@ -13,15 +13,17 @@ import { PopularResturantsCard } from '../../components/Cards/PopularResturantCa
 import { HorizontalCards } from '../../components/Cards/HorizontalCards'
 import SearchHeader from '../../components/SearchHeader'
 import { SearchFilter } from '../../components/SearchFilter/index'
-import { ItemCard } from '../../components/Cards/ItemCard'
 import { ItemDetail } from '../../components/ItemDetails/ItemDetail'
-import { NumericInput } from '../../components/NumericInput'
-
-const Home = ({ navigation, user }) => {
+import { getAllMerchant } from '../../stores/actions/resturantAction'
+const Home = ({ navigation, user, resturants, getAllMerchant }) => {
 
   const FilterRef = createRef()
   const itemRef = createRef()
+  useEffect(() => {
+    getAllMerchant()
+  }, [])
 
+  console.log("resturants", resturants)
   const [showFilter, setShowFilter] = useState(false)
 
   return (
@@ -94,8 +96,13 @@ const styles = StyleSheet.create({
 })
 const mapStateToProps = state => {
   return {
-    user: state.userReducer.user
+    user: state.userReducer.user,
+    resturants: state.resturant.resturants
   }
 }
 
-export default connect(mapStateToProps, null)(Home)
+const mapDispatchToProps = {
+  getAllMerchant
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

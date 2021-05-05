@@ -2,6 +2,7 @@ import { Alert } from 'react-native'
 import { getUser, postApi, getApi } from '../../api/fakeApiUser'
 import base_url from '../../constants/base_url'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ERROR } from '../constants';
 export const fetchUserRequest = () => {
   return {
     type: 'FETCH_USER_REQUEST'
@@ -70,7 +71,7 @@ export const userLogin = (user) => {
         // NavigationSer.navigate("SignIn")
       } else {
         Alert.alert("error", data.message)
-        dispatch({ type: "ERROR" })
+        dispatch({ type: ERROR })
         return Promise.resolve({ status: false })
       }
 
@@ -95,11 +96,11 @@ export const forgetPass = (obj) => {
         return Promise.resolve({ status: true })
       } else {
         Alert.alert("error", data.message)
-        dispatch({ type: "ERROR" })
+        dispatch({ type: ERROR })
         return Promise.resolve({ status: false })
       }
     } catch ({message}) {
-      dispatch({ type: "ERROR" })
+      dispatch({ type: ERROR })
       Alert.alert("error", message)
       return Promise.reject({ status: false, message })
     }
@@ -121,11 +122,11 @@ export const changePass = (obj, authToken) => {
           return Promise.resolve({ status: true })
         } else {
           Alert.alert("Error", data.message)
-          dispatch({ type: "ERROR" })
+          dispatch({ type: ERROR})
           return Promise.resolve({ status: false })
         }
       } catch ({message}) {
-        dispatch({ type: "ERROR" })
+        dispatch({ type: ERROR })
         Alert.alert("error", message)
         return Promise.reject({ status: false, message })
       }
@@ -147,12 +148,12 @@ export const updateProfile = (obj) => {
         dispatch({ type: "UPDATED_PROFILE_SUCCESS", payload: data })
         return Promise.resolve({ status: true })
       } else {
-        dispatch({ type: "ERROR" })
+        dispatch({ type: ERROR })
         Alert.alert("error", data.message)
         return Promise.resolve({ status: false })
       }
     } catch ({message}) {
-      dispatch({ type: "ERROR" })
+      dispatch({ type: ERROR })
       Alert.alert("error", message)
       return Promise.reject({ status: false, message })
     }
